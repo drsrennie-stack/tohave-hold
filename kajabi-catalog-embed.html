@@ -1,0 +1,36 @@
+<!-- =====================================================================
+     To Have and Hold: Catalog (Kajabi embed for Page 2)
+
+     Inlines the rentals-catalog.html iframe directly on the Kajabi page.
+     Booqable's product list widget loads inside the iframe, and Booqable's
+     cart appears automatically as a sticky element when items are added.
+     The cart, rental agreement, and payment all happen through Booqable's
+     widgets without leaving your domain.
+
+     The receiver script syncs iframe height to its content so the page
+     reads as native, with no internal scrollbar.
+     ===================================================================== -->
+
+<iframe
+  id="tohave-catalog"
+  title="To Have and Hold collection"
+  src="https://drsrennie-stack.github.io/tohave-hold/rentals-catalog.html"
+  scrolling="no"
+  loading="lazy"
+  allow="clipboard-write"
+  style="width:100%; border:0; display:block; min-height:1200px; background:transparent;">
+</iframe>
+
+<script>
+(function(){
+  // Iframe height-receiver. Listens for postMessage from any iframe using
+  // the {type:'iframe-height', id, height} protocol and resizes the matching
+  // iframe to fit its content.
+  window.addEventListener('message', function(e){
+    var data = e && e.data;
+    if (!data || data.type !== 'iframe-height' || typeof data.height !== 'number') return;
+    var iframe = document.getElementById(data.id);
+    if (iframe) iframe.style.height = (data.height + 24) + 'px';
+  });
+})();
+</script>
