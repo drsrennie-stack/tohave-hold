@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To Have &amp; Hold | Stay Connected</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:       #ffffff;
+      --off-white:   #faf8f6;
+      --surface:     #f4eeea;
+      --rose:        #b86262;
+      --rose-light:  #c47575;
+      --rose-pale:   #ead4d4;
+      --rose-wash:   #f5eaea;
+      --ink:         #1e1714;
+      --ink-mid:     #4a3d38;
+      --ink-soft:    #7a6b63;
+      --ink-faint:   #b0a099;
+      --rule:        #e0d4cc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* ─── ANNOUNCEMENT ─── */
+    .bar {
+      background: var(--rose-wash);
+      text-align: center;
+      padding: 11px 24px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+    .bar span { color: var(--ink-faint); margin: 0 10px; }
+
+    /* ─── NAV ─── */
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 96px;
+    }
+    .nav-logo {
+      height: 80px;
+      width: auto;
+      display: block;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-link {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--ink); }
+
+    /* ─── HERO ─── */
+    #hero {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      min-height: 70vh;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .hero-left {
+      padding: 88px 72px 96px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 720px;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--rose);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 5.5vw, 80px);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+    h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--rose);
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-bottom: 28px;
+    }
+
+    .hero-body {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--ink-soft);
+      max-width: 520px;
+      margin-bottom: 44px;
+    }
+
+    /* ─── FORM WRAP ─── */
+    .form-wrap {
+      max-width: 520px;
+    }
+
+    .trust-line {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      line-height: 1.6;
+      color: var(--ink-faint);
+      text-align: center;
+      margin-top: 18px;
+    }
+    .trust-line span { color: var(--ink-faint); margin: 0 6px; opacity: 0.5; }
+    .trust-line a {
+      color: var(--ink-soft);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .trust-line a:hover {
+      color: var(--rose);
+      border-bottom-color: var(--rose);
+    }
+
+    /* Ready to book callout */
+    .ready-line {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--ink-mid);
+      letter-spacing: 0.02em;
+    }
+    .ready-line a {
+      color: var(--rose);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 11px;
+      margin-left: 6px;
+      border-bottom: 1px solid var(--rose-pale);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .ready-line a:hover { border-bottom-color: var(--rose); }
+    .ready-line a::after { content: ' →'; }
+
+    /* ─── KAJABI FORM STYLE OVERRIDES ─── */
+    /* Reset Kajabi's default styling and match the rose design system */
+    #kajabi-form,
+    .kajabi-form--inline {
+      background: transparent !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      border: none !important;
+      box-shadow: none !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+    .kajabi-form * {
+      font-family: 'Outfit', sans-serif !important;
+      box-sizing: border-box;
+    }
+    .kajabi-form__title,
+    .kajabi-form__subtitle {
+      display: none !important;
+    }
+    .kajabi-form__content {
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+    }
+    .kajabi-form fieldset {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .kajabi-form__form-item {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    /* Full width rows: email, select, button */
+    .kajabi-form__form-item.email-field,
+    .kajabi-form__form-item.select-box-field {
+      grid-column: 1 / -1;
+    }
+    /* Input + select styling */
+    .kajabi-form input[type="text"],
+    .kajabi-form input[type="email"],
+    .kajabi-form select {
+      background: var(--off-white) !important;
+      border: 1px solid var(--rule) !important;
+      border-radius: 0 !important;
+      padding: 16px 18px !important;
+      font-family: 'Outfit', sans-serif !important;
+      font-size: 14px !important;
+      font-weight: 300 !important;
+      color: var(--ink) !important;
+      outline: none !important;
+      width: 100% !important;
+      height: auto !important;
+      appearance: none !important;
+      -webkit-appearance: none !important;
+      -moz-appearance: none !important;
+      box-shadow: none !important;
+      transition: border-color 0.2s, background 0.2s !important;
+      line-height: 1.4 !important;
+    }
+    .kajabi-form input::placeholder {
+      color: var(--ink-faint) !important;
+      opacity: 1 !important;
+    }
+    .kajabi-form select {
+      color: var(--ink-faint) !important;
+      cursor: pointer;
+    }
+    .kajabi-form select:has(option:checked:not([value=""])) {
+      color: var(--ink) !important;
+    }
+    .kajabi-form input:focus,
+    .kajabi-form select:focus {
+      border-color: var(--rose) !important;
+      background: var(--white) !important;
+    }
+    /* Custom select chevron */
+    .kajabi-form__form-item.select-box-field {
+      position: relative;
+    }
+    .kajabi-form__form-item.select-box-field::after {
+      content: '›';
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      color: var(--ink-faint);
+      pointer-events: none;
+      font-size: 14px;
+    }
+    /* Submit button */
+    .kajabi-form__btn {
+      grid-column: 1 / -1;
+      width: 100% !important;
+      background: var(--rose) !important;
+      color: white !important;
+      font-family: 'Outfit', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.18em !important;
+      text-transform: uppercase !important;
+      padding: 19px !important;
+      border: none !important;
+      border-radius: 0 !important;
+      cursor: pointer !important;
+      margin-top: 4px !important;
+      box-shadow: none !important;
+      transition: background 0.2s, transform 0.15s !important;
+      height: auto !important;
+      line-height: 1.2 !important;
+    }
+    .kajabi-form__btn:hover {
+      background: var(--rose-light) !important;
+      transform: translateY(-1px);
+    }
+    /* reCAPTCHA stays hidden (invisible recaptcha) */
+    .kajabi-form .recaptcha-field {
+      grid-column: 1 / -1;
+    }
+    /* Hide Google's floating reCAPTCHA badge completely (branding preserved in trust line below per Google's terms) */
+    .grecaptcha-badge,
+    div.grecaptcha-badge,
+    body > .grecaptcha-badge {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      width: 0 !important;
+      height: 0 !important;
+      position: absolute !important;
+      left: -9999px !important;
+      top: -9999px !important;
+      pointer-events: none !important;
+      z-index: -1 !important;
+    }
+    /* Validation error styling */
+    .kajabi-form .parsley-errors-list {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 4px 0 0 !important;
+      font-size: 11px !important;
+      color: var(--rose) !important;
+      letter-spacing: 0.04em;
+    }
+    /* Success state */
+    .kajabi-form__submitted,
+    .kajabi-form__success,
+    .kajabi-form__thanks {
+      background: var(--rose-wash) !important;
+      border-top: 2px solid var(--rose) !important;
+      padding: 40px 36px !important;
+      text-align: center !important;
+      color: var(--ink-mid) !important;
+      font-family: 'Outfit', sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 300 !important;
+      line-height: 1.7 !important;
+    }
+
+    /* ─── HERO RIGHT ─── */
+    .hero-right {
+      background: var(--rose-wash);
+      position: relative;
+      min-height: 400px;
+      overflow: hidden;
+    }
+    .hero-right img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-right::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(30,23,20,0) 40%, rgba(184,98,98,0.18) 100%);
+      pointer-events: none;
+    }
+    .hero-card {
+      position: absolute;
+      left: 48px;
+      bottom: 48px;
+      z-index: 2;
+      background: var(--white);
+      border-top: 2px solid var(--rose);
+      padding: 26px 30px;
+      min-width: 240px;
+      box-shadow: 0 4px 32px rgba(30,23,20,0.1);
+    }
+    .hero-card-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 10px;
+    }
+    .hero-card-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .live-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #5aaa7a;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+    .hero-card-sub {
+      font-size: 12px;
+      color: var(--ink-faint);
+      margin-top: 6px;
+    }
+
+    /* ─── INFO GRID ─── */
+    #info {
+      padding: 80px 72px;
+      background: var(--white);
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .info-box {
+      background: var(--white);
+      padding: 52px 40px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .info-box:hover { background: var(--rose-wash); }
+    .info-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 16px;
+    }
+    .info-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    .info-value em { font-style: italic; font-weight: 400; color: var(--rose); }
+    .info-rule {
+      width: 24px;
+      height: 1px;
+      background: var(--rose);
+      margin: 16px auto 0;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--rule);
+      padding: 56px 72px 40px;
+    }
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .footer-logo-link {
+      display: inline-block;
+      line-height: 0;
+    }
+    .footer-logo-img {
+      height: 72px;
+      width: auto;
+      display: block;
+    }
+
+    .social-bar {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .social-bar a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-soft);
+      text-decoration: none;
+      background: var(--white);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .social-bar a:hover {
+      border-color: var(--rose);
+      color: var(--rose);
+      background: var(--rose-wash);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 28px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-size: 12px;
+      color: var(--ink-faint);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--rose); }
+
+    /* ─── REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+
+    /* Hero stagger */
+    .hero-left > * {
+      animation: hIn 0.75s ease both;
+    }
+    .hero-left > *:nth-child(1) { animation-delay: 0.05s; }
+    .hero-left > *:nth-child(2) { animation-delay: 0.18s; }
+    .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+    .hero-left > *:nth-child(4) { animation-delay: 0.42s; }
+    .hero-left > *:nth-child(5) { animation-delay: 0.54s; }
+    .hero-left > *:nth-child(6) { animation-delay: 0.66s; }
+    @keyframes hIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      nav { padding: 0 28px; height: 84px; }
+      .nav-logo { height: 64px; }
+      #hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 64px 28px 48px; max-width: 100%; }
+      .hero-right { min-height: 320px; }
+      .hero-card { left: 28px; bottom: 28px; padding: 22px 24px; min-width: 220px; }
+      #info { padding: 56px 28px; }
+      .info-grid { grid-template-columns: 1fr; }
+      .info-box { padding: 40px 32px; }
+      footer { padding: 44px 28px 28px; }
+      .footer-logo-img { height: 56px; }
+      .footer-top { flex-direction: column; text-align: center; gap: 24px; padding-bottom: 28px; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 16px; }
+      h1 { font-size: clamp(40px, 9vw, 56px); }
+    }
+    @media (max-width: 560px) {
+      .form-row { grid-template-columns: 1fr; }
+      .bar { font-size: 10px; letter-spacing: 0.14em; padding: 10px 16px; }
+      .bar span:first-of-type { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="bar">
+  Now Booking 2026 &amp; 2027 <span>·</span> Central Wisconsin <span>·</span> Full Setup &amp; Teardown
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="https://www.tohaveholddecor.com/">
+    <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2164760737/settings_images/c21ddcd-f44b-460-3b0-5ac22861e427_586e73cf-96a0-4ec7-83b0-c6a0cffdcb0c.png" alt="To Have &amp; Hold Event Decor" class="nav-logo"/>
+  </a>
+  <div class="nav-right">
+    <a href="https://www.tohaveholddecor.com/" class="nav-link">Main Site</a>
+    <div class="social-bar">
+      <a href="https://www.facebook.com/tohaveandhold" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/to.have.and.hold" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@megrennie_2haveandhold" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">A personal hello</p>
+    <h1>Let's stay <em>connected.</em></h1>
+    <p class="hero-sub">Based in Bancroft, WI, serving Central Wisconsin</p>
+    <p class="hero-body">
+      Drop your info below and we'll stay in touch by email with seasonal décor inspiration, real events from our studio, and early notice when new booking windows open. No sales calls, no pressure, and you can unsubscribe any time.
+    </p>
+    <div class="form-wrap">
+      <!-- Kajabi form embed: renders inline via document.write on page parse -->
+      <script src="https://www.tohaveholddecor.com/forms/2149552157/embed.js"></script>
+      <p class="trust-line">
+        Email contact <span>·</span> No sales calls <span>·</span> Unsubscribe anytime<br>
+        Protected by reCAPTCHA. Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms</a> apply.
+      </p>
+      <p class="ready-line">
+        Ready to book?<a href="https://www.tohaveholddecor.com/">Visit the website</a>
+      </p>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production//sites/2148787843/images/e2129b3c-e7e3-4824-8eae-0a0e2fd41262.jpg" alt="To Have &amp; Hold event styling"/>
+    <div class="hero-card">
+      <div class="hero-card-label">Availability</div>
+      <div class="hero-card-val"><span class="live-dot"></span> Booking 2026 &amp; 2027</div>
+      <div class="hero-card-sub">Limited dates, inquire early</div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO GRID -->
+<section id="info">
+  <div class="info-grid">
+    <div class="info-box reveal">
+      <p class="info-label">Studio</p>
+      <p class="info-value">Bancroft, <em>WI</em></p>
+      <div class="info-rule"></div>
+    </div>
+    <div class="info-box reveal d1">
+      <p class="info-label">Booking</p>
+      <p class="info-value">2026 &amp; <em>2027</em></p>
+      <div class="info-rule"></div>
+    </div>
+    <div class="info-box reveal d2">
+      <p class="info-label">Specialty</p>
+      <p class="info-value">Weddings &amp; <em>Events</em></p>
+      <div class="info-rule"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <a href="https://www.tohaveholddecor.com/" class="footer-logo-link">
+      <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2164760737/settings_images/c21ddcd-f44b-460-3b0-5ac22861e427_586e73cf-96a0-4ec7-83b0-c6a0cffdcb0c.png" alt="To Have &amp; Hold Event Decor" class="footer-logo-img"/>
+    </a>
+    <div class="social-bar">
+      <a href="https://www.facebook.com/tohaveandhold" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/to.have.and.hold" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@megrennie_2haveandhold" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 To Have &amp; Hold. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="https://www.tohaveholddecor.com/">Home</a>
+      <a href="https://www.tohaveholddecor.com/event-inquiry">Inquire</a>
+      <a href="https://www.tohaveholddecor.com/book">Consult</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver(
+    e => e.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ─── Kajabi form customization ───
+  // The form renders via document.write during parse, so it's in the DOM by now.
+  function customizeKajabiForm() {
+    const btn = document.querySelector('.kajabi-form__btn');
+    if (btn && btn.textContent.trim() === 'Subscribe') {
+      btn.textContent = 'Keep Me In The Loop';
+    }
+    // Recalc iframe height when Kajabi shows its success state after submit
+    const form = document.querySelector('#kajabi-form form');
+    if (form) {
+      form.addEventListener('submit', function() {
+        // Fire a few delayed height checks to catch the post-submit layout
+        setTimeout(sendHeight, 300);
+        setTimeout(sendHeight, 1500);
+        setTimeout(sendHeight, 3000);
+      });
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', customizeKajabiForm);
+  } else {
+    customizeKajabiForm();
+  }
+
+  // ─── reCAPTCHA badge remover (JS fallback for CSS hide) ───
+  // Google's script can inject the badge after our CSS loads, so we actively
+  // remove it. Branding stays in the trust line per Google's terms.
+  function killRecaptchaBadge() {
+    document.querySelectorAll('.grecaptcha-badge').forEach(el => el.remove());
+  }
+  // Watch the DOM for the badge being added and remove it the moment it appears
+  const badgeObserver = new MutationObserver(killRecaptchaBadge);
+  badgeObserver.observe(document.documentElement, { childList: true, subtree: true });
+  // Also try on common lifecycle events
+  killRecaptchaBadge();
+  window.addEventListener('load', killRecaptchaBadge);
+  setTimeout(killRecaptchaBadge, 500);
+  setTimeout(killRecaptchaBadge, 2000);
+
+  // ─── Iframe height sender for Kajabi embed ───
+  function sendHeight() {
+    if (window.parent === window) return;
+    const height = document.documentElement.scrollHeight;
+    window.parent.postMessage({ id: 'to-have-hold-stay-connected', height: height }, '*');
+  }
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+  const ro = new ResizeObserver(sendHeight);
+  ro.observe(document.body);
+</script>
+</body>
+</html>
