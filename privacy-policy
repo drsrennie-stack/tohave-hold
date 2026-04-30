@@ -1,0 +1,334 @@
+<div class="p-wrap">
+  <div class="p-shell">
+
+    <header class="p-hero">
+      <div class="p-eyebrow">Policies</div>
+      <h1 class="p-title">Privacy <em>Policy</em></h1>
+      <div class="p-meta">Effective January 1, 2026</div>
+    </header>
+
+    <div class="p-rule" aria-hidden="true"></div>
+
+    <article class="p-doc">
+
+      <p class="p-lead">
+        To Have &amp; Hold Event Decor ("we," "our," or "us") values your privacy.
+        This Privacy Policy explains how we collect, use, and protect your personal
+        information when you visit our website or submit an inquiry.
+      </p>
+
+      <section class="p-section" aria-labelledby="info-collect">
+        <h2 id="info-collect" class="p-h2">Information We Collect</h2>
+        <p>We may collect personal information you voluntarily provide, including:</p>
+        <ul class="p-list">
+          <li>Name</li>
+          <li>Email address</li>
+          <li>Phone number</li>
+          <li>Event details or inquiry information</li>
+        </ul>
+        <p>
+          We may also collect limited, non-identifying technical information such as
+          browser type or device information to improve website performance.
+        </p>
+      </section>
+
+      <section class="p-section" aria-labelledby="info-use">
+        <h2 id="info-use" class="p-h2">How We Use Your Information</h2>
+        <p>We use your information to:</p>
+        <ul class="p-list">
+          <li>Respond to inquiries</li>
+          <li>Communicate about services you request</li>
+          <li>Provide updates related to your inquiry or engagement</li>
+          <li>Improve our website and client experience</li>
+        </ul>
+        <p class="p-emphasis">
+          We do not sell, rent, or trade your personal information.
+        </p>
+      </section>
+
+      <section class="p-section" aria-labelledby="third-party">
+        <h2 id="third-party" class="p-h2">Third-Party Services</h2>
+        <p>
+          We use trusted third-party platforms, including Kajabi, to host our website,
+          manage forms, and deliver email communications. These providers may process
+          data on our behalf in accordance with their own privacy policies.
+        </p>
+      </section>
+
+      <section class="p-section" aria-labelledby="cookies">
+        <h2 id="cookies" class="p-h2">Cookies and Tracking</h2>
+        <p>
+          Our website may use standard cookies or similar technologies to support
+          functionality and performance. We do not use cookies to personally identify visitors.
+        </p>
+      </section>
+
+      <section class="p-section" aria-labelledby="data-protection">
+        <h2 id="data-protection" class="p-h2">Data Protection</h2>
+        <p>
+          We take reasonable measures to protect your personal information. However,
+          no method of transmission over the internet is completely secure.
+        </p>
+      </section>
+
+      <section class="p-section" aria-labelledby="your-rights">
+        <h2 id="your-rights" class="p-h2">Your Rights</h2>
+        <p>You may request to:</p>
+        <ul class="p-list">
+          <li>Access, update, or delete your personal information</li>
+          <li>Opt out of future communications</li>
+        </ul>
+        <p>
+          To do so, contact us at
+          <a href="mailto:admin@tohavehollddecor.com" class="p-inline-link">admin@tohavehollddecor.com</a>.
+        </p>
+      </section>
+
+      <section class="p-section" aria-labelledby="updates">
+        <h2 id="updates" class="p-h2">Updates to This Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time. Changes will be posted
+          on this page with a revised effective date.
+        </p>
+      </section>
+
+    </article>
+
+    <div class="p-rule" aria-hidden="true"></div>
+
+    <footer class="p-footer">
+      <a href="/" class="p-footer-link">Return home</a>
+    </footer>
+
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
+
+  :root{
+    --blush: #E8DADB;
+    --blush-soft: #F2E8E8;
+    --sage:  #98A4A5;
+    --sage-deep: #7B8989;
+    --ink:   #1f2a2b;
+    --ink-soft: rgba(31,42,43,.78);
+    --ink-muted: rgba(31,42,43,.6);
+    --cream: #FBF7F2;
+    --paper: #FCFAF6;
+    --line:  rgba(152,164,165,.35);
+    --line-soft: rgba(152,164,165,.22);
+    --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --sans: 'Jost', system-ui, -apple-system, sans-serif;
+  }
+
+  .p-wrap{
+    font-family: var(--sans);
+    color: var(--ink);
+    padding: 96px 20px 110px;
+    background:
+      radial-gradient(900px 520px at 18% 6%, rgba(232,218,219,.55), transparent 55%),
+      radial-gradient(820px 480px at 86% 18%, rgba(152,164,165,.14), transparent 55%),
+      var(--paper);
+  }
+
+  .p-shell{
+    max-width: 760px;
+    margin: 0 auto;
+    display: grid;
+    gap: 48px;
+  }
+
+  /* Hero */
+  .p-hero{
+    text-align: center;
+  }
+
+  .p-eyebrow{
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 11.5px;
+    letter-spacing: .32em;
+    color: var(--sage-deep);
+    margin-bottom: 22px;
+  }
+
+  .p-title{
+    font-family: var(--serif);
+    font-weight: 500;
+    margin: 0 0 18px 0;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    line-height: 1.04;
+    font-size: clamp(40px, 5.2vw, 64px);
+  }
+
+  .p-title em{
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .p-meta{
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--sage-deep);
+    font-size: 16px;
+    letter-spacing: 0.01em;
+  }
+
+  /* Hairline rule with center dot */
+  .p-rule{
+    position: relative;
+    height: 1px;
+    background: var(--line-soft);
+    margin: 0 auto;
+    width: 100%;
+    max-width: 560px;
+  }
+
+  .p-rule::after{
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1px solid var(--sage);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Document body */
+  .p-doc{
+    display: grid;
+    gap: 36px;
+  }
+
+  .p-lead{
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0 auto;
+    text-align: center;
+    max-width: 60ch;
+  }
+
+  .p-section{
+    display: grid;
+    gap: 14px;
+  }
+
+  .p-h2{
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(24px, 2.6vw, 30px);
+    margin: 0 0 4px 0;
+    color: var(--ink);
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+  }
+
+  .p-doc p{
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 15.5px;
+    line-height: 1.78;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .p-list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+
+  .p-list li{
+    position: relative;
+    padding-left: 22px;
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .p-list li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 10px;
+    height: 1px;
+    background: var(--sage);
+  }
+
+  /* Emphasis statement: stands apart with serif italic + hairlines */
+  .p-emphasis{
+    font-family: var(--serif) !important;
+    font-style: italic;
+    font-weight: 500 !important;
+    font-size: 19px !important;
+    line-height: 1.55 !important;
+    color: var(--ink) !important;
+    text-align: center;
+    padding: 18px 12px;
+    margin: 8px 0 0 !important;
+    border-top: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  /* Inline link */
+  .p-inline-link{
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--sage);
+    transition: text-decoration-color .2s ease;
+  }
+
+  .p-inline-link:hover{ text-decoration-color: var(--ink); }
+
+  /* Footer */
+  .p-footer{
+    text-align: center;
+    padding-top: 8px;
+  }
+
+  .p-footer-link{
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 15.5px;
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--sage);
+    transition: text-decoration-color .2s ease;
+  }
+
+  .p-footer-link:hover{ text-decoration-color: var(--ink); }
+
+  @media (max-width: 640px){
+    .p-wrap{ padding: 64px 16px 80px; }
+    .p-shell{ gap: 36px; }
+    .p-doc{ gap: 28px; }
+    .p-lead{ font-size: 17px; }
+    .p-emphasis{
+      font-size: 17px !important;
+      padding: 16px 8px;
+    }
+  }
+</style>
