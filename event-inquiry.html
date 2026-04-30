@@ -351,6 +351,95 @@
       margin-top: 16px;
     }
 
+    /* ─── KAJABI FORM STYLING ─── */
+    /* Targets only actual form elements inside the embed.
+       No display rules, no wrapper targeting. */
+
+    /* Pink 3D form fields (excludes submit buttons) */
+    .kajabi-form-mount input:not([type="submit"]):not([type="button"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]),
+    .kajabi-form-mount select,
+    .kajabi-form-mount textarea {
+      background-color: var(--rose-wash) !important;
+      border: 1px solid rgba(184, 98, 98, 0.22) !important;
+      border-radius: 10px !important;
+      box-shadow:
+        inset 0 2px 4px rgba(184, 98, 98, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.55),
+        0 1px 0 rgba(255, 255, 255, 0.9) !important;
+      color: var(--ink) !important;
+      transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s !important;
+    }
+
+    .kajabi-form-mount input::placeholder,
+    .kajabi-form-mount textarea::placeholder {
+      color: var(--ink-soft) !important;
+      opacity: 1 !important;
+    }
+
+    .kajabi-form-mount input:focus,
+    .kajabi-form-mount select:focus,
+    .kajabi-form-mount textarea:focus {
+      background-color: var(--white) !important;
+      border-color: var(--rose) !important;
+      box-shadow:
+        inset 0 2px 4px rgba(184, 98, 98, 0.08),
+        0 0 0 3px rgba(184, 98, 98, 0.10) !important;
+      outline: none !important;
+    }
+
+    /* Pine Design System theming variables — Kajabi's form uses Pine */
+    .kajabi-form-mount {
+      --pine-color-primary: #b86262;
+      --pine-color-action: #b86262;
+      --pine-color-action-primary: #b86262;
+      --pine-color-button-primary: #b86262;
+      --pine-button-background-color: #b86262;
+      --pine-button-bg: #b86262;
+      --pine-button-background: #b86262;
+      --pine-button-color: #ffffff;
+      --pine-button-text-color: #ffffff;
+      --pine-button-border-color: transparent;
+    }
+
+    /* Subscribe / submit button — ghost style, working with Pine's white background */
+    .kajabi-form-mount button,
+    .kajabi-form-mount input[type="submit"] {
+      background: var(--white) !important;
+      background-color: var(--white) !important;
+      background-image: none !important;
+      color: var(--rose) !important;
+      font-family: 'Outfit', sans-serif !important;
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.18em !important;
+      text-transform: uppercase !important;
+      padding: 19px 40px !important;
+      border: 1.5px solid var(--rose) !important;
+      border-radius: 8px !important;
+      cursor: pointer !important;
+      width: 100% !important;
+      margin-top: 18px !important;
+      box-shadow: 0 4px 14px rgba(184, 98, 98, 0.18) !important;
+      transition: background-color 0.2s, color 0.2s, transform 0.15s !important;
+    }
+
+    /* Inner elements inherit the rose text color */
+    .kajabi-form-mount button *,
+    .kajabi-form-mount button span,
+    .kajabi-form-mount button > div {
+      background: transparent !important;
+      background-color: transparent !important;
+      background-image: none !important;
+      color: var(--rose) !important;
+    }
+
+    .kajabi-form-mount button:hover,
+    .kajabi-form-mount input[type="submit"]:hover {
+      background: var(--rose-wash) !important;
+      background-color: var(--rose-wash) !important;
+      transform: translateY(-1px) !important;
+    }
+
     /* ─── FOOTER ─── */
     #thh-footer {
       background: var(--white);
