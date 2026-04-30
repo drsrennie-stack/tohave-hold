@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To Have &amp; Hold | Thank You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:       #ffffff;
+      --off-white:   #faf8f6;
+      --surface:     #f4eeea;
+      --rose:        #b86262;
+      --rose-light:  #c47575;
+      --rose-pale:   #ead4d4;
+      --rose-wash:   #f5eaea;
+      --ink:         #1e1714;
+      --ink-mid:     #4a3d38;
+      --ink-soft:    #7a6b63;
+      --ink-faint:   #b0a099;
+      --rule:        #e0d4cc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 96px;
+    }
+    .nav-logo {
+      height: 80px;
+      width: auto;
+      display: block;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-link {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--ink); }
+
+    .social-bar {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .social-bar a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-soft);
+      text-decoration: none;
+      background: var(--white);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .social-bar a:hover {
+      border-color: var(--rose);
+      color: var(--rose);
+      background: var(--rose-wash);
+    }
+
+    /* ─── THANK YOU HERO ─── */
+    #thanks {
+      background: var(--rose-wash);
+      position: relative;
+      padding: 120px 48px 104px;
+      text-align: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--rose-pale);
+    }
+    #thanks::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(184,98,98,0.08) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 80%, rgba(184,98,98,0.06) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .thanks-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* Decorative flourish */
+    .thanks-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .thanks-mark .line {
+      width: 36px;
+      height: 1px;
+      background: var(--rose);
+    }
+    .thanks-mark .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--rose);
+    }
+
+    .thanks-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(56px, 6.5vw, 96px);
+      font-weight: 700;
+      line-height: 1.02;
+      color: var(--ink);
+      margin-bottom: 32px;
+      letter-spacing: -0.015em;
+    }
+    h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--rose);
+    }
+
+    .thanks-body {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--ink-mid);
+      max-width: 540px;
+      margin: 0 auto 44px;
+    }
+
+    .btn-rose {
+      background: var(--rose);
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 19px 44px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-rose:hover { background: var(--rose-light); transform: translateY(-1px); }
+
+    .thanks-secondary {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      margin-top: 28px;
+    }
+    .thanks-secondary a {
+      color: var(--ink-mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+      margin: 0 4px;
+    }
+    .thanks-secondary a:hover {
+      color: var(--rose);
+      border-bottom-color: var(--rose);
+    }
+
+    /* ─── EXPECT GRID ─── */
+    #expect {
+      padding: 80px 72px;
+      background: var(--white);
+    }
+    .expect-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .s-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 14px;
+    }
+    .s-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 2.8vw, 38px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+    .s-h2 em { font-style: italic; font-weight: 400; color: var(--rose); }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .info-box {
+      background: var(--white);
+      padding: 48px 36px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .info-box:hover { background: var(--rose-wash); }
+    .info-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 14px;
+    }
+    .info-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .info-value em { font-style: italic; font-weight: 400; color: var(--rose); }
+    .info-rule {
+      width: 24px;
+      height: 1px;
+      background: var(--rose);
+      margin: 14px auto 0;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--rule);
+      padding: 56px 72px 40px;
+    }
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .footer-logo-link {
+      display: inline-block;
+      line-height: 0;
+    }
+    .footer-logo-img {
+      height: 72px;
+      width: auto;
+      display: block;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 28px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-size: 12px;
+      color: var(--ink-faint);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--rose); }
+
+    /* ─── HERO STAGGER ─── */
+    .thanks-wrap > * {
+      animation: hIn 0.75s ease both;
+    }
+    .thanks-wrap > *:nth-child(1) { animation-delay: 0.05s; }
+    .thanks-wrap > *:nth-child(2) { animation-delay: 0.18s; }
+    .thanks-wrap > *:nth-child(3) { animation-delay: 0.3s; }
+    .thanks-wrap > *:nth-child(4) { animation-delay: 0.42s; }
+    .thanks-wrap > *:nth-child(5) { animation-delay: 0.54s; }
+    .thanks-wrap > *:nth-child(6) { animation-delay: 0.66s; }
+    @keyframes hIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* ─── REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      nav { padding: 0 28px; height: 84px; }
+      .nav-logo { height: 64px; }
+      #thanks { padding: 88px 28px 80px; }
+      #expect { padding: 56px 28px; }
+      .info-grid { grid-template-columns: 1fr; }
+      .info-box { padding: 36px 32px; }
+      footer { padding: 44px 28px 28px; }
+      .footer-logo-img { height: 56px; }
+      .footer-top { flex-direction: column; text-align: center; gap: 24px; padding-bottom: 28px; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 16px; }
+      h1 { font-size: clamp(44px, 10vw, 64px); }
+      .thanks-body { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://www.tohaveholddecor.com/">
+    <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2164760737/settings_images/c21ddcd-f44b-460-3b0-5ac22861e427_586e73cf-96a0-4ec7-83b0-c6a0cffdcb0c.png" alt="To Have &amp; Hold Event Decor" class="nav-logo"/>
+  </a>
+  <div class="nav-right">
+    <a href="https://www.tohaveholddecor.com/" class="nav-link">Main Site</a>
+    <div class="social-bar">
+      <a href="https://www.facebook.com/tohaveandhold" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/to.have.and.hold" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@megrennie_2haveandhold" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- THANK YOU HERO -->
+<section id="thanks">
+  <div class="thanks-wrap">
+    <div class="thanks-mark">
+      <span class="line"></span>
+      <span class="dot"></span>
+      <span class="line"></span>
+    </div>
+    <p class="thanks-eyebrow">You're on the list</p>
+    <h1>Thank <em>you.</em></h1>
+    <p class="thanks-body">
+      Thanks for saying hello. Look for a warm welcome in your inbox soon, then seasonal décor inspiration and real events from our studio now and then. No sales calls, no pressure, and you can unsubscribe any time.
+    </p>
+    <a href="https://www.tohaveholddecor.com/" class="btn-rose">Visit The Website</a>
+    <p class="thanks-secondary">
+      or <a href="https://www.tohaveholddecor.com/event-inquiry">start an event inquiry</a> or <a href="https://www.tohaveholddecor.com/book">book a consult</a>
+    </p>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section id="expect">
+  <div class="expect-header">
+    <p class="s-label reveal">What Happens Next</p>
+    <h2 class="s-h2 reveal d1">A quiet, <em>thoughtful</em> cadence.</h2>
+  </div>
+  <div class="info-grid">
+    <div class="info-box reveal">
+      <p class="info-label">Soon</p>
+      <p class="info-value">Welcome <em>email</em></p>
+      <div class="info-rule"></div>
+    </div>
+    <div class="info-box reveal d1">
+      <p class="info-label">Now &amp; Then</p>
+      <p class="info-value">Seasonal <em>notes</em></p>
+      <div class="info-rule"></div>
+    </div>
+    <div class="info-box reveal d2">
+      <p class="info-label">Always</p>
+      <p class="info-value">Unsubscribe <em>anytime</em></p>
+      <div class="info-rule"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <a href="https://www.tohaveholddecor.com/" class="footer-logo-link">
+      <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2164760737/settings_images/c21ddcd-f44b-460-3b0-5ac22861e427_586e73cf-96a0-4ec7-83b0-c6a0cffdcb0c.png" alt="To Have &amp; Hold Event Decor" class="footer-logo-img"/>
+    </a>
+    <div class="social-bar">
+      <a href="https://www.facebook.com/tohaveandhold" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/to.have.and.hold" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@megrennie_2haveandhold" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 To Have &amp; Hold. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="https://www.tohaveholddecor.com/">Home</a>
+      <a href="https://www.tohaveholddecor.com/event-inquiry">Inquire</a>
+      <a href="https://www.tohaveholddecor.com/book">Consult</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver(
+    e => e.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ─── Iframe height sender for Kajabi embed ───
+  function sendHeight() {
+    if (window.parent === window) return;
+    const height = document.documentElement.scrollHeight;
+    window.parent.postMessage({ id: 'to-have-hold-thank-you', height: height }, '*');
+  }
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+  const ro = new ResizeObserver(sendHeight);
+  ro.observe(document.body);
+</script>
+</body>
+</html>
