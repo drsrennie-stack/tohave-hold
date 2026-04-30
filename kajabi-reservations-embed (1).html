@@ -1,0 +1,348 @@
+<!-- =====================================================================
+     To Have and Hold: Reservations (click-to-open modal embed for Kajabi)
+     - Drops a brand-styled trigger button onto the page.
+     - Click opens a modal containing the reservations iframe.
+     - The iframe's src is loaded lazily on first click (saves load time).
+     - Height-receiver listens to the iframe's postMessage so the inner
+       page sizes to its content; the modal body scrolls when needed.
+     - ESC, the X button, and clicking the backdrop all close the modal.
+     - To trigger the modal from any other element on the page (a Kajabi
+       header link, a hero image, etc.), just add data-th-reserve-open
+       to that element.
+     ===================================================================== -->
+
+<div class="th-reserve">
+
+  <!-- Trigger button -->
+  <button type="button"
+          class="th-reserve-cta"
+          data-th-reserve-open
+          aria-haspopup="dialog"
+          aria-controls="th-reserve-modal">
+    <span class="th-reserve-cta-eyebrow">Reservations</span>
+    <span class="th-reserve-cta-row">
+      <span class="th-reserve-cta-text">Begin your <em>reservation</em></span>
+      <span class="th-reserve-cta-arrow" aria-hidden="true">&rarr;</span>
+    </span>
+    <span class="th-reserve-cta-note">Choose dates, browse the collection, sign and pay in one place.</span>
+  </button>
+
+  <!-- Modal -->
+  <div class="th-reserve-modal"
+       id="th-reserve-modal"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="th-reserve-modal-title"
+       aria-hidden="true">
+    <div class="th-reserve-modal-backdrop" data-th-reserve-close></div>
+
+    <div class="th-reserve-modal-shell" role="document">
+      <div class="th-reserve-modal-bar">
+        <span id="th-reserve-modal-title" class="th-reserve-modal-eyebrow">Reservations</span>
+        <button type="button"
+                class="th-reserve-modal-close"
+                data-th-reserve-close
+                aria-label="Close reservations">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6L18 18M18 6L6 18"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="th-reserve-modal-body">
+        <iframe
+          id="tohave-reservations"
+          title="To Have and Hold reservations"
+          data-src="https://drsrennie-stack.github.io/tohave-hold/reservations.html"
+          scrolling="no"
+          loading="lazy"
+          allow="clipboard-write"></iframe>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
+
+  .th-reserve{
+    --rose-deep: #A8797D;
+    --sage: #98A4A5;
+    --sage-deep: #7B8989;
+    --ink: #1f2a2b;
+    --cream: #FBF7F2;
+    --paper: #FCFAF6;
+    --line: rgba(152,164,165,.35);
+    --line-soft: rgba(152,164,165,.22);
+    --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --sans: 'Jost', system-ui, -apple-system, sans-serif;
+  }
+
+  /* ===== Trigger CTA ===== */
+  .th-reserve-cta{
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid var(--line);
+    background: var(--cream);
+    border-radius: 18px;
+    padding: 28px 32px 24px;
+    display: grid;
+    gap: 6px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 12px 36px rgba(31,42,43,.05);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    margin: 0 auto;
+    max-width: 460px;
+    width: 100%;
+    font-family: var(--sans);
+    color: var(--ink);
+  }
+
+  .th-reserve-cta:hover,
+  .th-reserve-cta:focus-visible{
+    transform: translateY(-2px);
+    box-shadow: 0 22px 60px rgba(31,42,43,.08);
+    border-color: var(--sage);
+    outline: none;
+  }
+
+  .th-reserve-cta-eyebrow{
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: .32em;
+    color: var(--sage-deep);
+    text-transform: uppercase;
+  }
+
+  .th-reserve-cta-row{
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 14px;
+    margin: 6px 0 4px;
+  }
+
+  .th-reserve-cta-text{
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(24px, 3.2vw, 32px);
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+  }
+
+  .th-reserve-cta-text em{
+    font-style: italic;
+    font-weight: 400;
+    color: var(--rose-deep);
+  }
+
+  .th-reserve-cta-arrow{
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(22px, 2.8vw, 28px);
+    color: var(--rose-deep);
+    transition: transform .25s ease;
+    line-height: 1;
+  }
+
+  .th-reserve-cta:hover .th-reserve-cta-arrow,
+  .th-reserve-cta:focus-visible .th-reserve-cta-arrow{
+    transform: translateX(6px);
+  }
+
+  .th-reserve-cta-note{
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 13.5px;
+    color: rgba(31,42,43,.55);
+    line-height: 1.6;
+    max-width: 38ch;
+    margin: 4px auto 0;
+  }
+
+  /* ===== Modal ===== */
+  .th-reserve-modal{
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+
+  .th-reserve-modal.is-open{
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .th-reserve-modal-backdrop{
+    position: absolute;
+    inset: 0;
+    background: rgba(31,42,43,.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .th-reserve-modal-shell{
+    position: relative;
+    z-index: 1;
+    background: var(--paper);
+    border-radius: 18px;
+    box-shadow: 0 30px 80px rgba(31,42,43,.30);
+    width: min(1180px, calc(100vw - 32px));
+    height: min(900px, calc(100vh - 32px));
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(8px) scale(.98);
+    transition: transform .25s ease;
+  }
+
+  .th-reserve-modal.is-open .th-reserve-modal-shell{
+    transform: translateY(0) scale(1);
+  }
+
+  .th-reserve-modal-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--line-soft);
+    background: var(--cream);
+    flex-shrink: 0;
+  }
+
+  .th-reserve-modal-eyebrow{
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: .32em;
+    color: var(--sage-deep);
+    text-transform: uppercase;
+  }
+
+  .th-reserve-modal-close{
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--sage-deep);
+    padding: 0;
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+  }
+
+  .th-reserve-modal-close:hover,
+  .th-reserve-modal-close:focus-visible{
+    background: #fff;
+    color: var(--ink);
+    border-color: var(--sage);
+    outline: none;
+  }
+
+  .th-reserve-modal-body{
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: var(--paper);
+  }
+
+  .th-reserve-modal-body iframe{
+    width: 100%;
+    border: 0;
+    display: block;
+    background: transparent;
+    min-height: 600px;
+    /* height auto-adjusted by the height-receiver below */
+  }
+
+  /* Mobile: full-screen modal */
+  @media (max-width: 640px){
+    .th-reserve-modal-shell{
+      width: 100vw;
+      height: 100vh;
+      max-height: 100vh;
+      border-radius: 0;
+    }
+    .th-reserve-cta{ padding: 22px 24px 20px; }
+  }
+</style>
+
+<script>
+(function(){
+  var modal = document.getElementById('th-reserve-modal');
+  if (!modal) return;
+
+  var iframe   = document.getElementById('tohave-reservations');
+  var openEls  = document.querySelectorAll('[data-th-reserve-open]');
+  var closeEls = modal.querySelectorAll('[data-th-reserve-close]');
+
+  var loaded   = false;
+  var lastFocus = null;
+
+  function lockScroll(lock){
+    document.documentElement.style.overflow = lock ? 'hidden' : '';
+    document.body.style.overflow            = lock ? 'hidden' : '';
+  }
+
+  function openModal(e){
+    if (e && e.preventDefault) e.preventDefault();
+    lastFocus = document.activeElement;
+
+    // Lazy-load the iframe the first time the modal opens
+    if (!loaded && iframe && iframe.dataset.src){
+      iframe.src = iframe.dataset.src;
+      loaded = true;
+    }
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    lockScroll(true);
+
+    // Move focus into the modal so ESC works immediately
+    var closeBtn = modal.querySelector('.th-reserve-modal-close');
+    if (closeBtn) setTimeout(function(){ closeBtn.focus(); }, 80);
+  }
+
+  function closeModal(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    lockScroll(false);
+    if (lastFocus && typeof lastFocus.focus === 'function'){
+      try { lastFocus.focus(); } catch(_){}
+    }
+  }
+
+  // Wire up triggers and close buttons
+  openEls.forEach(function(el){ el.addEventListener('click', openModal); });
+  closeEls.forEach(function(el){ el.addEventListener('click', closeModal); });
+
+  // ESC to close
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+
+  // Iframe height-receiver: listens for postMessage from reservations.html
+  // and resizes the iframe so the modal body scrolls naturally rather than
+  // the iframe scrolling internally (better UX, especially on iOS).
+  window.addEventListener('message', function(e){
+    var data = e && e.data;
+    if (!data || data.type !== 'iframe-height' || typeof data.height !== 'number') return;
+    var target = document.getElementById(data.id);
+    if (target) target.style.height = data.height + 'px';
+  });
+})();
+</script>
