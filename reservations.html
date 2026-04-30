@@ -1,80 +1,16 @@
-<div class="r-wrap">
-  <div class="r-shell">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservations | To Have and Hold</title>
+<meta name="description" content="Reserve your event décor. Choose your dates, browse the collection, sign your rental agreement, and pay at checkout.">
 
-    <!-- Hero -->
-    <header class="r-hero">
-      <div class="r-eyebrow">Reservations</div>
-      <h1 class="r-title">Hold your <em>date</em></h1>
-      <p class="r-lead">
-        Choose your event dates, browse the collection, and reserve everything in one place.
-        You'll sign your rental agreement and pay at checkout.
-      </p>
-    </header>
-
-    <div class="r-rule" aria-hidden="true"></div>
-
-    <!-- Step I: Dates -->
-    <section class="r-step" aria-labelledby="r-step-1">
-      <div class="r-step-head">
-        <span class="r-step-num">I.</span>
-        <h2 id="r-step-1" class="r-step-title">Select your event dates</h2>
-      </div>
-      <p class="r-step-sub">
-        Availability and pricing update automatically based on the dates you choose.
-      </p>
-
-      <div class="r-picker-card">
-        <div class="r-picker-flag">
-          <span class="r-picker-flag-line"></span>
-          <span class="r-picker-flag-label">Your Event Dates</span>
-          <span class="r-picker-flag-line"></span>
-        </div>
-        <div class="r-picker-body">
-          <div class="booqable-datepicker"></div>
-        </div>
-      </div>
-    </section>
-
-    <div class="r-rule" aria-hidden="true"></div>
-
-    <!-- Step II: Browse -->
-    <section class="r-step" aria-labelledby="r-step-2">
-      <div class="r-step-head">
-        <span class="r-step-num">II.</span>
-        <h2 id="r-step-2" class="r-step-title">Add what you love</h2>
-      </div>
-      <p class="r-step-sub">
-        Browse the collection and add pieces to your cart. Your cart appears as soon as you make a selection.
-      </p>
-      <div class="r-catalog">
-        <div class="booqable-product-list"></div>
-      </div>
-    </section>
-
-    <div class="r-rule" aria-hidden="true"></div>
-
-    <!-- Step III: Review -->
-    <section class="r-step r-step-finale" aria-labelledby="r-step-3">
-      <div class="r-step-head">
-        <span class="r-step-num">III.</span>
-        <h2 id="r-step-3" class="r-step-title">Review, sign, and reserve</h2>
-      </div>
-      <p class="r-step-sub">
-        Open your cart when you're ready. You'll confirm your dates, sign the rental agreement, and complete payment, all in one place.
-      </p>
-    </section>
-
-    <footer class="r-footnote">
-      <span class="r-footnote-text">Want help choosing pieces or need something custom?</span>
-      <a href="/consultation" class="r-footnote-link">Text or call for a design consultation.</a>
-    </footer>
-
-  </div>
-</div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
-
   :root{
     --blush: #E8DADB;
     --blush-soft: #F2E8E8;
@@ -91,6 +27,22 @@
     --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
     --sans: 'Jost', system-ui, -apple-system, sans-serif;
     --radius: 18px;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+  }
+
+  body{
+    font-family: var(--sans);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
   }
 
   .r-wrap{
@@ -267,21 +219,81 @@
     width: 100%;
   }
 
-  /* Catalog frame: lighter than picker so Booqable's product cards lead */
-  .r-catalog{
+  /* Catalog link card (Step II) */
+  .r-catalog-link{
     margin-top: 14px;
-    background: rgba(255,255,255,.55);
-    border: 1px solid var(--line-soft);
+    display: grid;
+    gap: 10px;
+    background: var(--cream);
+    border: 1px solid var(--line);
     border-radius: var(--radius);
     box-shadow: var(--shadow-soft);
-    padding: 24px;
+    padding: 32px 28px 26px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
   }
 
-  .r-catalog .booqable-product-list{
-    width: 100%;
+  .r-catalog-link:hover,
+  .r-catalog-link:focus-visible{
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+    border-color: var(--sage);
+    background: var(--cream);
+    outline: none;
   }
 
-  /* Step 3 finale: no card, centered */
+  .r-catalog-link-flag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+
+  .r-catalog-link-body{
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .r-catalog-link-text{
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(22px, 2.6vw, 30px);
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+
+  .r-catalog-link-arrow{
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(22px, 2.6vw, 30px);
+    color: var(--rose-deep);
+    line-height: 1;
+    transition: transform .25s ease;
+  }
+
+  .r-catalog-link:hover .r-catalog-link-arrow,
+  .r-catalog-link:focus-visible .r-catalog-link-arrow{
+    transform: translateX(6px);
+  }
+
+  .r-catalog-link-note{
+    text-align: center;
+    margin: 4px auto 0;
+    color: rgba(31,42,43,.55);
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 13.5px;
+    letter-spacing: 0.01em;
+  }
+
+  /* Step 3 finale: centered, no card */
   .r-step-finale{
     text-align: center;
     max-width: 580px;
@@ -334,8 +346,141 @@
     .r-shell{ gap: 48px; }
     .r-picker-card{ padding: 30px 20px 24px; }
     .r-picker-flag-line{ max-width: 40px; }
-    .r-catalog{ padding: 18px; }
+    .r-catalog-link{ padding: 26px 18px 22px; }
   }
 </style>
+</head>
+<body>
 
+<div class="r-wrap">
+  <div class="r-shell">
+
+    <!-- Hero -->
+    <header class="r-hero">
+      <div class="r-eyebrow">Reservations</div>
+      <h1 class="r-title">Hold your <em>date</em></h1>
+      <p class="r-lead">
+        Choose your event dates, browse the collection, and reserve everything in one place.
+        You'll sign your rental agreement and pay at checkout.
+      </p>
+    </header>
+
+    <div class="r-rule" aria-hidden="true"></div>
+
+    <!-- Step I: Dates -->
+    <section class="r-step" aria-labelledby="r-step-1">
+      <div class="r-step-head">
+        <span class="r-step-num">I.</span>
+        <h2 id="r-step-1" class="r-step-title">Select your event dates</h2>
+      </div>
+      <p class="r-step-sub">
+        Availability and pricing update automatically based on the dates you choose.
+      </p>
+
+      <div class="r-picker-card">
+        <div class="r-picker-flag">
+          <span class="r-picker-flag-line"></span>
+          <span class="r-picker-flag-label">Your Event Dates</span>
+          <span class="r-picker-flag-line"></span>
+        </div>
+        <div class="r-picker-body">
+          <div class="booqable-datepicker"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="r-rule" aria-hidden="true"></div>
+
+    <!-- Step II: Browse -->
+    <section class="r-step" aria-labelledby="r-step-2">
+      <div class="r-step-head">
+        <span class="r-step-num">II.</span>
+        <h2 id="r-step-2" class="r-step-title">Add what you love</h2>
+      </div>
+      <p class="r-step-sub">
+        Open the full collection in a new view. Add pieces to your cart, then return here to review and reserve.
+      </p>
+
+      <a class="r-catalog-link" href="/rentals-catalog" target="_top" rel="noopener">
+        <div class="r-catalog-link-flag">
+          <span class="r-picker-flag-line"></span>
+          <span class="r-picker-flag-label">The Collection</span>
+          <span class="r-picker-flag-line"></span>
+        </div>
+        <div class="r-catalog-link-body">
+          <span class="r-catalog-link-text">Browse the full collection</span>
+          <span class="r-catalog-link-arrow" aria-hidden="true">&rarr;</span>
+        </div>
+        <span class="r-catalog-link-note">Your cart and dates carry over automatically.</span>
+      </a>
+    </section>
+
+    <div class="r-rule" aria-hidden="true"></div>
+
+    <!-- Step III: Review -->
+    <section class="r-step r-step-finale" aria-labelledby="r-step-3">
+      <div class="r-step-head">
+        <span class="r-step-num">III.</span>
+        <h2 id="r-step-3" class="r-step-title">Review, sign, and reserve</h2>
+      </div>
+      <p class="r-step-sub">
+        Open your cart when you're ready. You'll confirm your dates, sign the rental agreement, and complete payment, all in one place.
+      </p>
+    </section>
+
+    <footer class="r-footnote">
+      <span class="r-footnote-text">Want help choosing pieces or need something custom?</span>
+      <a href="/consultation" class="r-footnote-link">Text or call for a design consultation.</a>
+    </footer>
+
+  </div>
+</div>
+
+<!-- Booqable widget loader -->
 <script src="https://4f8269a2-a669-406c-87a4-fa9b39c90a82.assets.booqable.com/v2/booqable.js"></script>
+
+<!-- Iframe height-sender for Kajabi embed -->
+<script>
+(function(){
+  var FRAME_ID = 'tohave-reservations';
+
+  function getHeight(){
+    return Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight,
+      document.documentElement.offsetHeight,
+      document.body.offsetHeight
+    );
+  }
+
+  var lastHeight = 0;
+  function sendHeight(){
+    if (window.parent === window) return;
+    var h = getHeight();
+    if (h === lastHeight) return;
+    lastHeight = h;
+    window.parent.postMessage({
+      type: 'iframe-height',
+      id: FRAME_ID,
+      height: h
+    }, '*');
+  }
+
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+
+  if (typeof ResizeObserver !== 'undefined'){
+    var ro = new ResizeObserver(function(){ sendHeight(); });
+    ro.observe(document.body);
+  }
+
+  // Belt-and-suspenders pings to catch late renders (Booqable products, fonts, images)
+  setTimeout(sendHeight, 250);
+  setTimeout(sendHeight, 1000);
+  setTimeout(sendHeight, 2500);
+  setTimeout(sendHeight, 5000);
+})();
+</script>
+
+</body>
+</html>
