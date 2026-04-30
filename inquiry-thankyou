@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You | To Have & Hold Event Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:      #ffffff;
+      --off-white:  #faf8f6;
+      --rose:       #b86262;
+      --rose-light: #c47575;
+      --rose-pale:  #ead4d4;
+      --rose-wash:  #f5eaea;
+      --ink:        #1e1714;
+      --ink-mid:    #4a3d38;
+      --ink-soft:   #7a6b63;
+      --ink-faint:  #b0a099;
+      --rule:       #e0d4cc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 24px;
+    }
+
+    /* ── LOGO SLOT ── */
+    .logo-wrap {
+      margin-bottom: 56px;
+      text-align: center;
+    }
+    .logo-wrap img {
+      height: 120px;
+      width: auto;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--rose-pale);
+      max-width: 720px;
+      width: 100%;
+      padding: 56px 64px;
+      position: relative;
+      border-top: 2px solid var(--rose);
+      animation: fadeUp 0.75s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .card-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--rose);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--rose);
+    }
+
+    .rule {
+      width: 36px;
+      height: 1px;
+      background: var(--rose);
+      margin-bottom: 28px;
+    }
+
+    .card p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--ink-mid);
+      margin-bottom: 18px;
+    }
+    .card p strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .card p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .sign-off {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--rose-light);
+    }
+    .sign-off p {
+      margin-bottom: 4px !important;
+      font-size: 14px !important;
+      color: var(--ink-soft) !important;
+    }
+    .sign-off .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px !important;
+      font-weight: 700 !important;
+      color: var(--ink) !important;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      margin-top: 36px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+    .back-link::before { content: '←'; }
+    .back-link:hover { color: var(--rose); }
+
+    @media (max-width: 600px) {
+      .card { padding: 40px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGO: keep your existing logo here -->
+  <div class="logo-wrap">
+    <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2164760737/settings_images/c21ddcd-f44b-460-3b0-5ac22861e427_586e73cf-96a0-4ec7-83b0-c6a0cffdcb0c.png" alt="To Have & Hold Event Decor" />
+  </div>
+
+  <!-- THANK YOU CARD -->
+  <div class="card">
+    <p class="card-eyebrow">Inquiry Received</p>
+    <h1>Thank you for<br>reaching <em>out.</em></h1>
+    <div class="rule"></div>
+    <p>We're so honored you're considering <strong>To Have &amp; Hold Decor</strong> for your special day.</p>
+    <p>Your inquiry has been received and we're reviewing the details. You can expect to hear from us within <strong>24&ndash;48 hours.</strong></p>
+    <p>In the meantime, feel free to explore our work and gather inspiration. We can't wait to connect with you and bring your vision to life.</p>
+
+    <div class="sign-off">
+      <p>Warmly,</p>
+      <p class="brand">To Have &amp; Hold Decor</p>
+    </div>
+  </div>
+
+  <a href="/" class="back-link">Back to home</a>
+
+</body>
+</html>
