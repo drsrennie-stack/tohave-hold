@@ -16,6 +16,7 @@
   --rose:#B86262;
   --rose-deep:#9E4E4E;
   --rose-deeper:#8F4646;
+  --rose-pale:#EAD4D4;
   --rose-wash:#F5EAEA;
   --surface:#F4EEEA;
   --bg:#FAF8F6;
@@ -49,17 +50,45 @@ button{font:inherit;color:inherit}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px 72px}
 
 /* Header */
-.masthead{padding:56px 0 34px;text-align:center}
+.masthead{padding:26px 0 22px}
+.hero{
+  position:relative;overflow:hidden;border-radius:var(--radius);
+  border:1px solid var(--line);box-shadow:var(--shadow-rest);
+  background:linear-gradient(112deg, var(--bg) 0%, var(--bg) 46%, var(--rose-wash) 100%);
+  padding:62px 56px;min-height:340px;display:flex;align-items:center;
+}
+.hero-art{
+  position:absolute;right:7%;bottom:-6%;height:112%;width:auto;max-width:44%;
+  pointer-events:none
+}
+.hero-copy{position:relative;max-width:56%}
 .eyebrow{
   font-family:var(--body);font-size:12px;letter-spacing:.20em;text-transform:uppercase;
-  color:var(--rose-deep);font-weight:500;margin:0 0 14px
+  color:var(--rose-deep);font-weight:500;margin:0
 }
+.hero-rule{display:block;width:52px;height:1px;background:var(--rose);opacity:.85;margin:20px 0 22px}
 h1{
-  font-family:var(--display);font-weight:500;font-size:clamp(2rem,5vw,3rem);
-  line-height:1.08;margin:0 0 16px;color:var(--ink);letter-spacing:.01em
+  font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,5.4vw,3.4rem);
+  line-height:1.06;margin:0 0 18px;color:var(--ink);letter-spacing:-.005em
 }
-.lede{max-width:62ch;margin:0 auto;color:var(--ink-soft);font-size:1.03rem;font-weight:300}
-.rule{border:0;border-top:1px solid var(--line);max-width:220px;margin:34px auto 0}
+h1 .accent{color:var(--rose)}
+.lede{max-width:52ch;margin:0;color:var(--ink-soft);font-size:1.03rem;font-weight:300}
+.hero-meta{
+  font-family:var(--body);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:300;margin:30px 0 0
+}
+@media (max-width:820px){
+  .hero{padding:40px 26px;min-height:0}
+  .hero-copy{max-width:100%}
+  .hero-art{opacity:.45;right:-10%;bottom:-4%;height:104%;max-width:58%}
+}
+
+/* quiet section divider, same motif language as the hero */
+.divider{display:flex;align-items:center;gap:16px;margin:34px 0 22px}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
+.divider span{
+  width:9px;height:9px;border:1px solid var(--rose);border-radius:50%;flex:none
+}
 
 h2{font-family:var(--display);font-weight:500;font-size:1.6rem;line-height:1.2;margin:0 0 6px}
 h3{font-family:var(--body);font-weight:500;font-size:1.06rem;margin:0 0 4px;letter-spacing:.01em}
@@ -251,10 +280,20 @@ footer.legal a{color:var(--rose-deeper)}
 <div class="wrap">
 
   <header class="masthead">
-    <p class="eyebrow">To Have and Hold</p>
-    <h1>Design your bundle</h1>
-    <p class="lede">Tell us your date, what you want to spend and the look you are drawn to. We will pull pieces from the collection that work together, and you can swap anything you like before you reserve.</p>
-    <hr class="rule">
+    <div class="hero">
+      <svg class="hero-art" viewBox="206 54 208 366" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMax meet">
+        <path d="M232 470 L232 158 A78 78 0 0 1 388 158 L388 470"
+              fill="none" stroke="var(--line)" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="310" cy="158" r="51" fill="none" stroke="var(--rose-pale)" stroke-width="1.4"/>
+      </svg>
+      <div class="hero-copy">
+        <p class="eyebrow">To Have &amp; Hold</p>
+        <span class="hero-rule" aria-hidden="true"></span>
+        <h1>Design your <span class="accent">bundle</span></h1>
+        <p class="lede">Tell us your date, what you want to spend and the look you are drawn to. We will pull pieces from the collection that work together, and you can swap anything you like before you reserve.</p>
+        <p class="hero-meta">Event Decor Rentals &nbsp;&middot;&nbsp; Central Wisconsin</p>
+      </div>
+    </div>
   </header>
 
   <main id="main">
@@ -332,6 +371,7 @@ footer.legal a{color:var(--rose-deeper)}
     </form>
 
     <section id="results" hidden aria-labelledby="resultsH" tabindex="-1">
+      <p class="divider" aria-hidden="true"><span></span></p>
       <div class="step">
         <h2 id="resultsH">Three ways to spend it</h2>
         <p class="hint" id="resultsSub">Every piece below comes from the live collection at today's prices. Pick the one closest to what you pictured, then make it yours.</p>
@@ -340,6 +380,7 @@ footer.legal a{color:var(--rose-deeper)}
     </section>
 
     <section id="builder" hidden aria-labelledby="builderH" tabindex="-1">
+      <p class="divider" aria-hidden="true"><span></span></p>
       <div class="builder">
 
         <div>

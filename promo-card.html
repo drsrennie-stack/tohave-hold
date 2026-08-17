@@ -1,0 +1,108 @@
+<!-- ============================================================
+     To Have and Hold, Bundle Designer promo card
+     ONE THING TO SET: the href on the .thh-cta link below.
+     It must match the URL slug of the Kajabi page holding the
+     bundle designer. If that page is yoursite.com/bundle-designer
+     then leave it exactly as it is.
+     ============================================================ -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+.thh-card-wrap{
+  --thh-ink:#1E1714; --thh-soft:#4A3D38; --thh-faint:#7A6B63;
+  --thh-rose:#B86262; --thh-rose-deep:#9E4E4E; --thh-rose-deeper:#8F4646;
+  --thh-rose-pale:#EAD4D4; --thh-rose-wash:#F5EAEA;
+  --thh-bg:#FAF8F6; --thh-line:#E0D4CC;
+  font-family:"Outfit","Helvetica Neue",Arial,sans-serif;
+  background:var(--thh-bg); padding:48px 20px;
+}
+.thh-card{
+  max-width:1000px; margin:0 auto; background:#fff;
+  border:1px solid var(--thh-line); border-radius:10px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.08);
+  display:grid; grid-template-columns:1.2fr 1fr; overflow:hidden;
+  transition:transform 200ms ease, box-shadow 200ms ease;
+}
+.thh-card:hover{ transform:translateY(-2px); box-shadow:0 8px 16px rgba(0,0,0,0.10); }
+@media (max-width:760px){ .thh-card{ grid-template-columns:1fr; } }
+
+.thh-card-body{ padding:46px 44px; }
+@media (max-width:760px){ .thh-card-body{ padding:34px 26px; } }
+
+.thh-eyebrow{
+  font-size:12px; letter-spacing:.20em; text-transform:uppercase;
+  color:var(--thh-rose-deep); font-weight:500; margin:0;
+}
+.thh-rule{ display:block; width:52px; height:1px; background:var(--thh-rose);
+  opacity:.85; margin:20px 0 22px; }
+.thh-card h2{
+  font-family:"Playfair Display",Georgia,serif; font-weight:400;
+  font-size:clamp(2rem,4.2vw,2.8rem); line-height:1.06;
+  margin:0 0 18px; color:var(--thh-ink); letter-spacing:-.005em;
+}
+.thh-card h2 .thh-accent{ color:var(--thh-rose); }
+.thh-card p.thh-desc{
+  margin:0 0 24px; color:var(--thh-soft);
+  font-size:1.02rem; font-weight:300; line-height:1.65; max-width:44ch;
+}
+.thh-points{ list-style:none; margin:0 0 30px; padding:0; }
+.thh-points li{
+  font-size:.93rem; color:var(--thh-faint); font-weight:300;
+  padding:9px 0; border-bottom:1px solid var(--thh-line);
+}
+.thh-points li:first-child{ border-top:1px solid var(--thh-line); }
+.thh-cta{
+  display:inline-block; background:var(--thh-rose-deep); color:#fff;
+  padding:15px 34px; border-radius:10px; text-decoration:none;
+  font-size:.95rem; font-weight:500; letter-spacing:.04em;
+  transition:background 180ms ease;
+}
+.thh-cta:hover, .thh-cta:focus{ background:var(--thh-rose-deeper); color:#fff; }
+.thh-cta:focus-visible{ outline:3px solid var(--thh-rose-deep); outline-offset:3px; }
+.thh-note{ margin:16px 0 0; font-size:.84rem; color:var(--thh-faint); font-weight:300; }
+
+.thh-card-art{
+  position:relative; overflow:hidden; min-height:300px;
+  background:linear-gradient(112deg, var(--thh-bg) 0%, var(--thh-rose-wash) 100%);
+}
+.thh-card-art svg{
+  position:absolute; right:14%; bottom:-6%; height:112%; width:auto;
+}
+@media (max-width:760px){ .thh-card-art{ min-height:190px; } .thh-card-art svg{ right:10%; } }
+
+@media (prefers-reduced-motion:reduce){ .thh-card:hover{ transform:none; } }
+</style>
+
+<div class="thh-card-wrap">
+  <div class="thh-card">
+
+    <div class="thh-card-body">
+      <p class="thh-eyebrow">To Have &amp; Hold</p>
+      <span class="thh-rule" aria-hidden="true"></span>
+      <h2>Design your <span class="thh-accent">bundle</span></h2>
+      <p class="thh-desc">
+        Tell us your date, what you want to spend and the look you are drawn to.
+        We will put together decor that works together, priced to your budget.
+      </p>
+      <ul class="thh-points">
+        <li>Three bundles built to your number, not a blank cart</li>
+        <li>Swap any piece and watch the total move</li>
+        <li>Reserve it yourself, or send the list to us</li>
+      </ul>
+
+      <!-- SET THIS HREF to your bundle designer page -->
+      <a class="thh-cta" href="/bundle-designer" target="_top">Start designing</a>
+
+      <p class="thh-note">Takes about two minutes. Nothing is booked until you say so.</p>
+    </div>
+
+    <div class="thh-card-art">
+      <svg viewBox="206 54 208 366" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMax meet">
+        <path d="M232 470 L232 158 A78 78 0 0 1 388 158 L388 470"
+              fill="none" stroke="var(--thh-line)" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="310" cy="158" r="51" fill="none" stroke="var(--thh-rose-pale)" stroke-width="1.4"/>
+      </svg>
+    </div>
+
+  </div>
+</div>
