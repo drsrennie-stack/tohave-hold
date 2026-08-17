@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design Your Bundle | To Have and Hold</title>
+<meta name="description" content="Tell us your date, your budget and the look you love. We will put together a decor bundle from the To Have and Hold collection that fits.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1E1714;
+  --ink-soft:#4A3D38;
+  --ink-faint:#7A6B63;
+  --rose:#B86262;
+  --rose-deep:#9E4E4E;
+  --rose-deeper:#8F4646;
+  --rose-wash:#F5EAEA;
+  --surface:#F4EEEA;
+  --bg:#FAF8F6;
+  --card:#FFFFFF;
+  --line:#E0D4CC;
+  --line-strong:#C9B8AD;
+  --field-line:#8A7E76;
+  --shadow-rest:0 1px 3px rgba(0,0,0,0.08);
+  --shadow-hover:0 8px 16px rgba(0,0,0,0.10);
+  --radius:10px;
+  --display:"Playfair Display",Georgia,serif;
+  --body:"Outfit","Helvetica Neue",Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-size:16px;line-height:1.65;font-weight:400;
+}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit}
+
+/* Focus */
+:focus-visible{outline:3px solid var(--rose-deep);outline-offset:3px;border-radius:2px}
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:100;
+  background:var(--ink);color:#fff;padding:12px 20px;text-decoration:none;font-weight:500;
+}
+.skip:focus{left:12px;top:12px}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px 72px}
+
+/* Header */
+.masthead{padding:56px 0 34px;text-align:center}
+.eyebrow{
+  font-family:var(--body);font-size:12px;letter-spacing:.20em;text-transform:uppercase;
+  color:var(--rose-deep);font-weight:500;margin:0 0 14px
+}
+h1{
+  font-family:var(--display);font-weight:500;font-size:clamp(2rem,5vw,3rem);
+  line-height:1.08;margin:0 0 16px;color:var(--ink);letter-spacing:.01em
+}
+.lede{max-width:62ch;margin:0 auto;color:var(--ink-soft);font-size:1.03rem;font-weight:300}
+.rule{border:0;border-top:1px solid var(--line);max-width:220px;margin:34px auto 0}
+
+h2{font-family:var(--display);font-weight:500;font-size:1.6rem;line-height:1.2;margin:0 0 6px}
+h3{font-family:var(--body);font-weight:500;font-size:1.06rem;margin:0 0 4px;letter-spacing:.01em}
+.hint{color:var(--ink-faint);font-size:.9rem;font-weight:300;margin:0 0 20px}
+
+/* Step cards */
+.step{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px 28px;margin:0 0 20px;box-shadow:var(--shadow-rest)
+}
+.step-num{
+  font-family:var(--body);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--rose-deep);font-weight:600;display:block;margin-bottom:8px
+}
+fieldset{border:0;margin:0;padding:0}
+legend{padding:0}
+
+.grid-fields{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+label.fld{display:block;font-size:.88rem;font-weight:500;color:var(--ink-soft);margin-bottom:7px;letter-spacing:.02em}
+input[type=date],input[type=number],input[type=text],select{
+  width:100%;padding:11px 13px;border:1px solid var(--field-line);border-radius:var(--radius);
+  background:#fff;color:var(--ink);font:inherit;font-size:.98rem;min-height:46px
+}
+input:hover,select:hover{border-color:var(--ink-faint)}
+select{appearance:none;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234A3D38' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:36px}
+
+/* Budget */
+.budget-row{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap}
+.budget-figure{
+  font-family:var(--display);font-size:2.6rem;line-height:1;font-weight:500;color:var(--ink);
+  min-width:170px
+}
+.budget-slider{flex:1 1 300px}
+input[type=range]{width:100%;accent-color:var(--rose-deep);height:32px}
+
+/* Chip groups */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.chip input{position:absolute;opacity:0;width:1px;height:1px}
+.chip label{
+  display:block;cursor:pointer;border:1px solid var(--field-line);border-radius:999px;
+  padding:9px 17px;font-size:.92rem;color:var(--ink-soft);background:#fff;
+  transition:border-color 160ms ease,color 160ms ease,background 160ms ease
+}
+.chip label:hover{border-color:var(--rose-deep);color:var(--rose-deeper)}
+.chip input:focus-visible + label{outline:3px solid var(--rose-deep);outline-offset:3px}
+.chip input:checked + label{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:500}
+
+/* Style tiles */
+.styles{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));margin:0;padding:0;list-style:none}
+.style-tile input{position:absolute;opacity:0;width:1px;height:1px}
+.style-tile label{
+  display:block;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 16px;height:100%;
+  transition:transform 200ms ease,box-shadow 200ms ease,border-color 200ms ease
+}
+.style-tile label:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:var(--line-strong)}
+.style-tile input:focus-visible + label{outline:3px solid var(--rose-deep);outline-offset:3px}
+.style-tile input:checked + label{border-color:var(--ink);border-width:2px;padding:17px 15px}
+.style-name{font-family:var(--display);font-size:1.16rem;font-weight:500;display:block;margin-bottom:3px}
+.style-desc{font-size:.84rem;color:var(--ink-faint);font-weight:300;line-height:1.5;display:block}
+.style-tile input:checked + label .style-name::after{content:" \2713";color:var(--rose-deep);font-family:var(--body);font-size:.9rem}
+
+/* Buttons */
+.btn{
+  display:inline-block;border:1px solid transparent;border-radius:var(--radius);
+  padding:14px 30px;font-size:.95rem;font-weight:500;letter-spacing:.04em;
+  cursor:pointer;text-decoration:none;text-align:center;
+  transition:background 180ms ease,color 180ms ease,border-color 180ms ease
+}
+.btn-primary{background:var(--rose-deep);color:#fff}
+.btn-primary:hover{background:var(--rose-deeper)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#000}
+.btn-ghost{background:#fff;color:var(--ink);border-color:var(--field-line)}
+.btn-ghost:hover{border-color:var(--ink);background:var(--bg)}
+.btn-sm{padding:9px 16px;font-size:.86rem}
+.btn[aria-disabled="true"],.btn:disabled{opacity:.45;cursor:not-allowed}
+.actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:26px}
+
+/* Status */
+.status{margin:14px 0 0;font-size:.9rem;color:var(--ink-faint);font-weight:300}
+.status[data-tone="warn"]{color:var(--rose-deeper);font-weight:400}
+
+/* Packages */
+.pkg-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.pkg{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 24px;box-shadow:var(--shadow-rest);display:flex;flex-direction:column;
+  transition:transform 200ms ease,box-shadow 200ms ease
+}
+.pkg:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+.pkg-kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose-deep);font-weight:600;margin:0 0 8px}
+.pkg-name{font-family:var(--display);font-size:1.45rem;font-weight:500;margin:0 0 6px;line-height:1.15}
+.pkg-blurb{font-size:.9rem;color:var(--ink-faint);font-weight:300;margin:0 0 18px}
+.pkg-total{font-family:var(--display);font-size:2rem;font-weight:500;margin:0 0 2px;line-height:1}
+.pkg-of{font-size:.82rem;color:var(--ink-faint);font-weight:300;margin:0 0 18px}
+.pkg-list{list-style:none;margin:0 0 22px;padding:0;font-size:.9rem;border-top:1px solid var(--line)}
+.pkg-list li{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--line)}
+.pkg-list .li-name{color:var(--ink-soft);font-weight:300}
+.pkg-list .li-price{color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.pkg .btn{margin-top:auto}
+
+/* Builder */
+.builder{display:grid;gap:22px;grid-template-columns:minmax(0,1fr) 330px;align-items:start}
+@media (max-width:880px){.builder{grid-template-columns:1fr}}
+
+.cart{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 22px;box-shadow:var(--shadow-rest);position:sticky;top:16px
+}
+@media (max-width:880px){.cart{position:static}}
+.cart h2{font-size:1.3rem;margin-bottom:2px}
+.cart-list{list-style:none;margin:16px 0;padding:0;font-size:.9rem}
+.cart-list li{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.cart-list .ci-name{font-weight:300;color:var(--ink-soft);line-height:1.4}
+.cart-list .ci-qty{font-size:.78rem;color:var(--ink-faint);display:block}
+.cart-list .ci-price{white-space:nowrap;font-variant-numeric:tabular-nums}
+.icon-btn{
+  background:#fff;border:1px solid var(--field-line);border-radius:var(--radius);
+  width:32px;height:32px;line-height:1;cursor:pointer;color:var(--ink-soft);font-size:1.1rem;
+  display:flex;align-items:center;justify-content:center
+}
+.icon-btn:hover{border-color:var(--rose-deep);color:var(--rose-deeper)}
+.cart-empty{color:var(--ink-faint);font-weight:300;font-size:.92rem;margin:16px 0}
+
+.meter-wrap{margin:18px 0 6px}
+.meter-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:7px}
+.meter-total{font-family:var(--display);font-size:1.75rem;font-weight:500;line-height:1}
+.meter-cap{font-size:.82rem;color:var(--ink-faint);font-weight:300}
+.meter{height:8px;background:var(--line);border-radius:999px;overflow:hidden}
+.meter-fill{height:100%;background:var(--rose-deep);width:0%;transition:width 220ms ease}
+.meter-fill[data-over="true"]{background:var(--ink)}
+.meter-note{font-size:.84rem;margin:9px 0 0;color:var(--ink-faint);font-weight:300}
+.meter-note[data-over="true"]{color:var(--ink);font-weight:400}
+
+/* Browse */
+.browse-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px;padding:0;list-style:none}
+.pieces{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));margin:0;padding:0;list-style:none}
+.piece{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-rest);
+  transition:transform 200ms ease,box-shadow 200ms ease
+}
+.piece:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+.piece-img{aspect-ratio:4/3;background:var(--bg);overflow:hidden}
+.piece-img img{width:100%;height:100%;object-fit:cover}
+.piece-body{padding:14px 15px 16px;display:flex;flex-direction:column;flex:1;gap:8px}
+.piece-name{font-size:.93rem;font-weight:400;line-height:1.35;margin:0}
+.piece-meta{font-size:.84rem;color:var(--ink-faint);font-weight:300;margin:0}
+.piece-tags{display:flex;flex-wrap:wrap;gap:5px;margin:0;padding:0;list-style:none}
+.piece-tags li{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--rose-deeper);background:var(--rose-wash);padding:3px 7px;border-radius:999px}
+.piece .btn{margin-top:auto}
+.piece[data-in="true"]{border-color:var(--ink);border-width:2px}
+
+/* Reserve */
+.reserve{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow-rest);margin-top:22px}
+.summary-box{
+  background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;font-size:.88rem;white-space:pre-wrap;font-family:var(--body);font-weight:300;
+  max-height:340px;overflow:auto;margin:18px 0
+}
+.steps-list{margin:0 0 20px;padding-left:1.25em;font-size:.93rem;color:var(--ink-soft);font-weight:300}
+.steps-list li{margin-bottom:8px}
+.steps-list a{color:var(--rose-deeper);font-weight:400}
+
+.pkg-list a,.summary-box a{color:var(--rose-deeper);text-decoration-thickness:1px;text-underline-offset:3px}
+.pkg-list a:hover{color:var(--ink)}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+[hidden]{display:none !important}
+
+footer.legal{text-align:center;font-size:.84rem;color:var(--ink-faint);font-weight:300;margin-top:44px}
+footer.legal a{color:var(--rose-deeper)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+  .pkg:hover,.piece:hover,.style-tile label:hover{transform:none}
+}
+@media print{
+  .step,.reserve .btn,.filters,.browse-head .btn{display:none}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the designer</a>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">To Have and Hold</p>
+    <h1>Design your bundle</h1>
+    <p class="lede">Tell us your date, what you want to spend and the look you are drawn to. We will pull pieces from the collection that work together, and you can swap anything you like before you reserve.</p>
+    <hr class="rule">
+  </header>
+
+  <main id="main">
+
+    <form id="brief" novalidate>
+
+      <section class="step" aria-labelledby="s1">
+        <span class="step-num">Step one</span>
+        <h2 id="s1">Your day</h2>
+        <p class="hint">Guest count helps us get the number of centerpieces and table pieces right.</p>
+        <div class="grid-fields">
+          <div>
+            <label class="fld" for="eventType">What are we decorating?</label>
+            <select id="eventType" name="eventType">
+              <option value="wedding">Wedding</option>
+              <option value="shower">Shower or engagement party</option>
+              <option value="birthday">Birthday or celebration</option>
+              <option value="corporate">Corporate event</option>
+              <option value="graduation">Graduation</option>
+            </select>
+          </div>
+          <div>
+            <label class="fld" for="eventDate">Event date</label>
+            <input type="date" id="eventDate" name="eventDate">
+          </div>
+          <div>
+            <label class="fld" for="guests">Guest count</label>
+            <input type="number" id="guests" name="guests" min="10" max="500" step="5" value="120" inputmode="numeric">
+          </div>
+        </div>
+      </section>
+
+      <section class="step" aria-labelledby="s2">
+        <span class="step-num">Step two</span>
+        <h2 id="s2">Your decor budget</h2>
+        <p class="hint">This is what you want to spend on rentals. We will build to it, not past it.</p>
+        <div class="budget-row">
+          <p class="budget-figure" id="budgetFigure" aria-hidden="true">$1,500</p>
+          <div class="budget-slider">
+            <label class="fld" for="budget">Budget</label>
+            <input type="range" id="budget" name="budget" min="250" max="8000" step="50" value="1500"
+                   aria-describedby="budgetOut">
+            <p class="sr-only" id="budgetOut" aria-live="polite">Budget set to 1,500 dollars</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="step" aria-labelledby="s3">
+        <fieldset>
+          <legend>
+            <span class="step-num">Step three</span>
+            <h2 id="s3">Your look</h2>
+          </legend>
+          <p class="hint">Pick one or two. Two works beautifully if you want a blend.</p>
+          <ul class="styles" id="styleTiles"></ul>
+          <p class="status" id="styleStatus" role="status"></p>
+        </fieldset>
+      </section>
+
+      <section class="step" aria-labelledby="s4">
+        <fieldset>
+          <legend>
+            <span class="step-num">Step four</span>
+            <h2 id="s4">What matters most</h2>
+          </legend>
+          <p class="hint">Choose everything you care about. We spend your budget here first.</p>
+          <ul class="chips" id="priorityChips"></ul>
+        </fieldset>
+        <div class="actions">
+          <button type="submit" class="btn btn-dark" id="buildBtn">Build my bundles</button>
+          <p class="status" id="loadStatus" role="status">Loading the current collection.</p>
+        </div>
+      </section>
+
+    </form>
+
+    <section id="results" hidden aria-labelledby="resultsH" tabindex="-1">
+      <div class="step">
+        <h2 id="resultsH">Three ways to spend it</h2>
+        <p class="hint" id="resultsSub">Every piece below comes from the live collection at today's prices. Pick the one closest to what you pictured, then make it yours.</p>
+        <div class="pkg-grid" id="pkgGrid"></div>
+      </div>
+    </section>
+
+    <section id="builder" hidden aria-labelledby="builderH" tabindex="-1">
+      <div class="builder">
+
+        <div>
+          <div class="step">
+            <div class="browse-head">
+              <div>
+                <h2 id="builderH">Make it yours</h2>
+                <p class="hint" style="margin-bottom:0">Add or remove anything. Your total updates as you go.</p>
+              </div>
+              <button type="button" class="btn btn-ghost btn-sm" id="backBtn">Back to the packages</button>
+            </div>
+            <ul class="filters" id="catFilters" role="group" aria-label="Filter pieces by category"></ul>
+            <p class="status" id="browseCount" role="status"></p>
+            <ul class="pieces" id="pieceGrid"></ul>
+            <div class="actions" style="justify-content:center">
+              <button type="button" class="btn btn-ghost" id="showAllBtn" hidden></button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="cart" aria-labelledby="cartH">
+          <h2 id="cartH">Your bundle</h2>
+          <p class="hint" id="cartDates" style="margin-bottom:0"></p>
+
+          <div class="meter-wrap">
+            <div class="meter-top">
+              <span class="meter-total" id="cartTotal">$0</span>
+              <span class="meter-cap" id="cartCap"></span>
+            </div>
+            <div class="meter" aria-hidden="true"><div class="meter-fill" id="meterFill"></div></div>
+            <p class="meter-note" id="meterNote" role="status"></p>
+          </div>
+
+          <ul class="cart-list" id="cartList"></ul>
+          <p class="cart-empty" id="cartEmpty" hidden>Nothing in the bundle yet. Add pieces from the collection.</p>
+
+          <button type="button" class="btn btn-primary" id="reserveBtn" style="width:100%">Reserve this bundle</button>
+        </aside>
+
+      </div>
+
+      <section class="reserve" id="reserve" hidden aria-labelledby="reserveH" tabindex="-1">
+        <h2 id="reserveH">Reserve your bundle</h2>
+        <p class="hint">Two ways to finish. Both get you to the same place.</p>
+        <ol class="steps-list">
+          <li><strong>Book it yourself.</strong> Open the store, set your rental dates at the top, then add each piece below. Checkout includes the rental agreement and payment.</li>
+          <li><strong>Or send it to us.</strong> Copy your bundle and paste it into the event inquiry form. We will confirm availability for your date and send an invoice.</li>
+        </ol>
+        <div class="actions" style="margin-top:0">
+          <a class="btn btn-primary" id="storeLink" href="#" target="_blank" rel="noopener">Open the store and book</a>
+          <a class="btn btn-ghost" id="inquiryLink" href="/event-inquiry" target="_top">Send this to To Have and Hold</a>
+          <button type="button" class="btn btn-ghost" id="copyBtn">Copy my bundle</button>
+        </div>
+        <p class="status" id="copyStatus" role="status"></p>
+        <h3 style="margin-top:26px">Your bundle, in writing</h3>
+        <div class="summary-box" id="summaryBox" tabindex="0" role="region" aria-label="Your bundle written out, scrollable"></div>
+        <h3>Piece by piece</h3>
+        <ul class="pkg-list" id="reserveList"></ul>
+      </section>
+    </section>
+
+    <footer class="legal">
+      <p>Prices shown are the current rental rates for each piece and are pulled live from the To Have and Hold collection. Final pricing depends on the length of your rental period, and availability is confirmed at checkout. Delivery, setup and teardown are quoted separately.</p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+/* ============================================================
+   To Have and Hold, bundle designer
+   Catalog and pricing read live from the Booqable store.
+   ============================================================ */
+(function(){
+  "use strict";
+
+  var SHOP   = "https://to-have-hold.booqableshop.com";
+  var IMGBASE= "https://content.booqablecdn.com/uploads/b61e572faa6bd273e65a074f43c24ec8/photo/photo/";
+
+  /* ---- style + category tags, keyed by product slug ---- */
+  var TAGS = {
+  "spinning-kissing-wheel":            { styles:["rustic","modern","garden"],           cat:"games",        tier:"mid" },
+  "lighted-columns-set-of-5":          { styles:["glam","classic","modern"],            cat:"lighting",     tier:"statement" },
+  "church-pews-set-of-10":             { styles:["rustic","vintage","classic"],         cat:"seating",      tier:"statement" },
+  "church-pews":                       { styles:["rustic","vintage","classic"],         cat:"seating",      tier:"mid" },
+  "newspaper-program-stand":           { styles:["vintage","rustic","classic"],         cat:"signage",      tier:"mid" },
+  "telephone-booth-rental":            { styles:["vintage","garden","classic"],         cat:"photo",        tier:"statement" },
+  "emerald-green-loveseat-and-chair":  { styles:["glam","moody","vintage"],             cat:"lounge",       tier:"statement" },
+  "emerald-love-seat":                 { styles:["glam","moody","vintage"],             cat:"lounge",       tier:"statement" },
+  "tufted-sofa-rental":                { styles:["classic","vintage","glam"],           cat:"lounge",       tier:"statement" },
+  "table-linen-ivory":                 { styles:["classic","modern","glam","garden"],   cat:"tabletop",     tier:"accent", scale:true },
+  "arch-decor":                        { styles:["classic","garden","boho"],            cat:"florals",      tier:"mid" },
+  "black-metal-sign-stand":            { styles:["modern","classic","moody"],           cat:"signage",      tier:"accent" },
+  "wooden-arch-2":                     { styles:["rustic","boho","garden"],             cat:"ceremony",     tier:"statement" },
+  "mr-mrs-lighted-letters-aprox-4-ft-tall": { styles:["glam","modern","rustic"],        cat:"lighting",     tier:"statement" },
+  "love-lighted-letters-4ftx9ft":      { styles:["glam","modern"],                      cat:"lighting",     tier:"statement" },
+  "door-statement-arch":               { styles:["rustic","vintage","garden"],          cat:"ceremony",     tier:"statement" },
+  "barn-door-arch-statement-piece":    { styles:["rustic","vintage"],                   cat:"ceremony",     tier:"statement" },
+  "boxwood-flower-wall":               { styles:["garden","glam","modern"],             cat:"backdrop",     tier:"statement" },
+  "basket-accent-florals":             { styles:["moody","boho","rustic"],              cat:"florals",      tier:"mid" },
+  "backdrop-boxwood-10x10":            { styles:["garden","modern","classic"],          cat:"backdrop",     tier:"statement" },
+  "wooden-large-display-stands-set-of-4": { styles:["rustic","boho","modern"],          cat:"accents",      tier:"mid" },
+  "yard-jenga":                        { styles:["rustic","garden"],                    cat:"games",        tier:"accent" },
+  "bottle-vase-table-number":          { styles:["rustic","boho","vintage"],            cat:"tabletop",     tier:"accent" },
+  "reserve-my-day":                    { styles:[],                                     cat:"deposit",      tier:"accent", exclude:true },
+  "champagne-fountain-ivory":          { styles:["vintage","glam","classic"],           cat:"bar",          tier:"statement" },
+  "champagne-foundation-silver":       { styles:["glam","classic","modern"],            cat:"bar",          tier:"statement" },
+  "portable-outdoor-bar":              { styles:["rustic","garden"],                    cat:"bar",          tier:"statement" },
+  "lanterns-white-medium-set-of-2":    { styles:["classic","boho","garden"],            cat:"lighting",     tier:"accent", scale:true },
+  "lanterns-gold-medium-set-of-2":     { styles:["glam","classic","boho"],              cat:"lighting",     tier:"accent", scale:true },
+  "candelabras-set-of-2":              { styles:["glam","classic","vintage"],           cat:"lighting",     tier:"accent", scale:true },
+  "table-numbers-sets":                { styles:["modern","boho","glam"],               cat:"tabletop",     tier:"accent" },
+  "lanterns-gold-open-lantern-set-of-2": { styles:["glam","boho","rustic"],             cat:"lighting",     tier:"accent" },
+  "glass-growler":                     { styles:["rustic","vintage","boho"],            cat:"centerpiece",  tier:"accent", scale:true },
+  "the-outpost":                       { styles:["rustic","garden","boho"],             cat:"ceremony",     tier:"statement" },
+  "mr-mrs-ring-box":                   { styles:["rustic","classic","vintage"],         cat:"accents",      tier:"accent" },
+  "welcome-sign-flower-box":           { styles:["garden","classic","modern"],          cat:"signage",      tier:"accent" },
+  "seating-chart-windows":             { styles:["vintage","rustic","boho"],            cat:"seatingchart", tier:"mid" },
+  "donut-board":                       { styles:["rustic","modern"],                    cat:"dessert",      tier:"mid" },
+  "lanterns-small":                    { styles:["modern","classic","moody"],           cat:"lighting",     tier:"accent", scale:true },
+  "graduation-cap-gown-stand":         { styles:["modern","classic"],                   cat:"signage",      tier:"accent", events:["graduation"] },
+  "led-lighted-sign-drunk-in-love":    { styles:["modern","glam"],                      cat:"lighting",     tier:"accent" },
+  "led-lighted-sign-mr-mrs":           { styles:["modern","glam"],                      cat:"lighting",     tier:"accent" },
+  "led-lighted-sign-but-first-chapagne": { styles:["modern","glam"],                    cat:"lighting",     tier:"accent" },
+  "signage-cards-gifts":               { styles:["classic","garden","boho"],            cat:"signage",      tier:"accent" },
+  "wooden-dessert-stands-set":         { styles:["rustic","garden"],                    cat:"dessert",      tier:"accent" },
+  "vases-misc":                        { styles:["classic","modern","garden","boho"],   cat:"centerpiece",  tier:"accent", scale:true },
+  "seating-chart-personalized-xl-lighted": { styles:["modern","classic","glam"],        cat:"seatingchart", tier:"statement" },
+  "reserved-sign-sets":                { styles:["rustic","classic"],                   cat:"signage",      tier:"accent" },
+  "xl-arch-florals-white-neutrals":    { styles:["boho","garden","classic"],            cat:"florals",      tier:"mid" },
+  "white-pallet-photo-display":        { styles:["rustic","boho","garden"],             cat:"photo",        tier:"mid" },
+  "heel-garage":                       { styles:["rustic","boho","garden"],             cat:"guestbook",    tier:"accent" },
+  "lighted-rustic-backdrop-fence":     { styles:["rustic","garden","boho"],             cat:"backdrop",     tier:"accent" },
+  "vintage-book-accent-set-of-3":      { styles:["vintage","boho","rustic"],            cat:"centerpiece",  tier:"accent", scale:true },
+  "seating-chart-mirror":              { styles:["glam","vintage","classic"],           cat:"seatingchart", tier:"mid" },
+  "triage-arch-set":                   { styles:["boho","modern","garden"],             cat:"ceremony",     tier:"statement" },
+  "audio-guest-book":                  { styles:["vintage","modern","boho"],            cat:"guestbook",    tier:"mid" },
+  "statement-mirror":                  { styles:["boho","glam","rustic"],               cat:"signage",      tier:"statement" },
+  "champagne-wall-boxwood":            { styles:["garden","modern","glam"],             cat:"bar",          tier:"statement" },
+  "polaroid-photo-booth-prop":         { styles:["modern","garden","boho"],             cat:"photo",        tier:"mid" },
+  "signage-how-sweet-it-is":           { styles:["rustic","classic","vintage"],         cat:"dessert",      tier:"accent" },
+  "wooden-accent-pieces":              { styles:["rustic","modern","boho"],             cat:"accents",      tier:"accent" },
+  "rustic-tiered-dessert-stand":       { styles:["rustic","vintage"],                   cat:"dessert",      tier:"accent" },
+  "arch-floral-set-neutral-browns":    { styles:["boho","rustic","garden"],             cat:"florals",      tier:"mid" },
+  "center-pieces-neutral-brown-set":   { styles:["boho","rustic","moody"],              cat:"centerpiece",  tier:"mid", scale:true },
+  "neutral-flower-set-brown-ivory-white": { styles:["boho","rustic","classic"],         cat:"florals",      tier:"statement" },
+  "gold-metal-circle-arch-10ft":       { styles:["modern","boho","garden","glam"],      cat:"ceremony",     tier:"mid" },
+  "arch-black-wooden-octagon-w-power": { styles:["modern","moody","garden","boho"],     cat:"ceremony",     tier:"statement" },
+  "wooden-raw-crates":                 { styles:["rustic","garden"],                    cat:"accents",      tier:"accent" },
+  "barrells":                          { styles:["rustic","garden","vintage"],          cat:"accents",      tier:"accent" },
+  "wooden-arch":                       { styles:["rustic","boho","garden"],             cat:"ceremony",     tier:"statement" },
+  "gold-arches-set-of-3-6ft-6-2ft-7-2ft": { styles:["glam","modern","boho","garden"],   cat:"ceremony",     tier:"mid" },
+  "arched-display-white":              { styles:["modern","classic","glam"],            cat:"accents",      tier:"mid" },
+  "wooden-guest-log":                  { styles:["rustic","boho","garden"],             cat:"guestbook",    tier:"mid" },
+  "vintage-dresser-display":           { styles:["vintage","rustic","garden"],          cat:"guestbook",    tier:"statement" },
+  "vintage-cream-sofa":                { styles:["vintage","glam","classic"],           cat:"lounge",       tier:"statement" },
+  "champagne-wall-wooden":             { styles:["rustic","modern"],                    cat:"bar",          tier:"statement" },
+  "wooden-backdrop-10x9":              { styles:["rustic","moody","vintage"],           cat:"backdrop",     tier:"statement" }
+};
+
+  /* ---- offline snapshot, used only if the live call fails ---- */
+  var SNAPSHOT = [{"name":"Spinning Kissing Wheel","cents":10000,"label":"from","slug":"spinning-kissing-wheel","img":"00f28bc3-29bf-4767-88c0-22095c06b5e7/large_e5c0988c-4ae4-4842-82d1-4532bcb2ce9e.jpg"},{"name":"Lighted Columns (Set of 5)","cents":20000,"label":"from","slug":"lighted-columns-set-of-5","img":"d08a99f2-bfde-4f74-81a0-93eb99262b6a/large_963bc9d5-22b5-47d0-98ec-f65ca8a28d92.jpg"},{"name":"Church Pews (Set of 10)","cents":100000,"label":"from","slug":"church-pews-set-of-10","img":"7eb2620c-09cd-402b-bb9b-a3783d68b92d/large_87e6cd06-3f4b-4720-a904-66c5d05c6393.jpg"},{"name":"Church Pews","cents":12500,"label":"from","slug":"church-pews","img":"9b6355a6-175b-47e3-abbf-b4276a729ee7/large_87e6cd06-3f4b-4720-a904-66c5d05c6393.jpg"},{"name":"Vintage Newspaper Program Stand","cents":15000,"label":"from","slug":"newspaper-program-stand","img":"d287e371-3c6a-4f1d-a87e-9f60bdf06b88/large_Screenshot_2026-07-15_072144.jpg"},{"name":"Telephone Booth Rental","cents":30000,"label":"from","slug":"telephone-booth-rental","img":"33d8a947-2e48-419d-a512-86428c6d200c/large_d64472ed-9280-42aa-8296-3b863eb8ea6e.jpg"},{"name":"Emerald Green Loveseat and Chair","cents":25000,"label":"from","slug":"emerald-green-loveseat-and-chair","img":"79b89ec2-3e01-49a6-8389-2f5d85630da2/large_b34e4e53-493c-471c-9d7b-3fd4654c30c2.jpg"},{"name":"Emerald Love Seat","cents":20000,"label":"from","slug":"emerald-love-seat","img":"cd92d3aa-2517-4bae-9e06-7dfe0e030e8e/large_6f98d7e8-1ac5-4b7f-aec9-5fd3610d4201.jpg"},{"name":"Tufted Sofa Rental","cents":30000,"label":"from","slug":"tufted-sofa-rental","img":"a469eb03-e605-459b-a51e-7c90392f71fa/large_47bb63d6-0e76-4ad9-a87e-a56dc5405d54.jpg"},{"name":"Table Linen - Ivory","cents":1500,"label":"from","slug":"table-linen-ivory","img":"8a0f5d7f-a0bd-47c5-87f9-2891f4ccd290/large_61csu0OJwRL.jpg"},{"name":"Arch Decor","cents":15000,"label":"from","slug":"arch-decor","img":"b490bb07-0255-4edb-9540-589a59e3eea7/large_61Wu97JFfPL-_AC_UF894_1000_QL80_.jpg"},{"name":"Black Metal Sign Stand","cents":2000,"label":"from","slug":"black-metal-sign-stand","img":"d1ac6f01-9d26-41d0-985d-74cd42fa6567/large_Screenshot_1.jpg"},{"name":"Wooden Arch 2","cents":10000,"label":"1 Day","slug":"wooden-arch-2","img":"affb9622-beb9-4990-8e64-53ed06f7b2c0/large_b22e0337-ccdc-4414-bea7-0db50f626be6.jpg"},{"name":"Mr & Mrs Lighted Letters, aprox. 4 ft tall","cents":30000,"label":"from","slug":"mr-mrs-lighted-letters-aprox-4-ft-tall","img":"d58feb4c-21bf-441e-a121-13989a29e9ea/large_a74cd650-c3fb-42d4-9de7-34e0ecaf01ac.jpg"},{"name":"LOVE Lighted Letters, 4ftx9ft","cents":30000,"label":"from","slug":"love-lighted-letters-4ftx9ft","img":"5d41adff-3710-4200-9127-d7409ecccfbc/large_Love_2.jpg"},{"name":"Door Statement Arch","cents":27500,"label":"from","slug":"door-statement-arch","img":"90a5cf9b-421d-4977-a9b8-138468c75b22/large_RenderedImage.jpg"},{"name":"Barn Door Arch Statement Piece","cents":30000,"label":"from","slug":"barn-door-arch-statement-piece","img":"1c0940d0-b529-4a69-a7ba-61b43b57e3f6/large_IMG_3371.jpg"},{"name":"Boxwood Flower Wall","cents":20000,"label":"from","slug":"boxwood-flower-wall","img":"7d526af3-5e03-4e0d-a692-13990e111f2d/large_upload.jpg"},{"name":"Basket Accent Florals","cents":20000,"label":"from","slug":"basket-accent-florals","img":"55019402-5202-4465-b5fb-4343335d4b84/large_upload.jpg"},{"name":"Backdrop: Boxwood 10x10","cents":15000,"label":"from","slug":"backdrop-boxwood-10x10","img":"aa97e476-eaec-4aca-973c-4c9a552ca5fb/large_646846102_122111686047229016_7801186467901293772_n.jpg"},{"name":"Wooden Large Display Stands (Set of 4)","cents":10000,"label":"from","slug":"wooden-large-display-stands-set-of-4","img":"9a0a0468-d0d4-43c4-aa3c-390dd400f056/large_644696559_122111681931229016_5777056241949341158_n.jpg"},{"name":"Yard Jenga","cents":5000,"label":"from","slug":"yard-jenga","img":"86fd0311-8dda-4296-84d2-8bc9390bdc19/large_f169c0d6-26a7-4d48-a68b-9deb7259d472.jpg"},{"name":"Bottle Vase / Table Number (set of 24)","cents":5000,"label":"from","slug":"bottle-vase-table-number","img":"9746aff3-9ac2-4830-b391-c36add253800/large_687795313_122120192289229016_7384137960796378878_n.jpg"},{"name":"Reserve My Day!","cents":10000,"label":"from","slug":"reserve-my-day","img":"5947d5dd-2f88-4ffe-b709-be8afa1d1d98/large_c214a042-9f3e-4a3b-a269-1dd193052179.jpg"},{"name":"Champagne Fountain: Ivory","cents":20000,"label":"from","slug":"champagne-fountain-ivory","img":"56b1c2ae-4dd1-4dce-bc4d-be827300c50f/large_686952129_122120055531229016_2911593229070020403_n.jpg"},{"name":"Champagne Foundation: Silver","cents":20000,"label":"from","slug":"champagne-foundation-silver","img":"976d0073-8e23-41f0-907c-5e04c544e647/large_688099033_122120055525229016_2720297160921647605_n.jpg"},{"name":"Portable Outdoor Bar","cents":30000,"label":"4 Days (Weekend)","slug":"portable-outdoor-bar","img":"ee65791d-09d9-43f1-97a9-5d05529395aa/large_686382479_122120004843229016_4343421136048107987_n.jpg"},{"name":"Lanterns: White, Medium, Set of 2","cents":2000,"label":"from","slug":"lanterns-white-medium-set-of-2","img":"e4752cbb-377a-4494-b9b2-e96e8fc1c068/large_lanters.jpg"},{"name":"Lanterns: Gold, Medium, Set of 2","cents":2000,"label":"from","slug":"lanterns-gold-medium-set-of-2","img":"ff5e707f-5b11-4924-9c15-32e053026397/large_d17a91ef-ddc4-461d-ae71-37804fa6ac84.jpg"},{"name":"Candelabras (Set of 2)","cents":2500,"label":"from","slug":"candelabras-set-of-2","img":"1153a5dc-0a17-47bd-a079-095c9037f16d/large_candelabra.jpg"},{"name":"Table Numbers (Sets)","cents":2000,"label":"from","slug":"table-numbers-sets","img":"5f0ad12f-2e99-4197-952b-51d9bf925ca1/large_att-FPaEYclQACKoWiqWi0FvsaWTRqWWHNJpAxv4XABDj94.jpg"},{"name":"Lanterns: Gold, Open Lantern, XL (Set of 2)","cents":5000,"label":"from","slug":"lanterns-gold-open-lantern-set-of-2","img":"f6091b3e-f0d1-4fed-8e7e-818f2af4e8e7/large_gold_lantern_xl.jpg"},{"name":"Glass Growler (1 Gallon)","cents":1500,"label":"from","slug":"glass-growler","img":"219d074f-c5f4-46d0-a63e-cae13718c9f7/large_1-gallon-growler__87172__34063.jpg"},{"name":"The Outpost","cents":267000,"label":"from","slug":"the-outpost","img":"73e42597-b7fb-48d7-a54b-da4fd4f4d135/large_arch3.jpg"},{"name":"Mr. & Mrs. Ring Box","cents":500,"label":"from","slug":"mr-mrs-ring-box","img":"f0b7fa15-9395-4f63-97a6-cab32270be0d/large_678334401_122119020183229016_6523473007175043519_n.jpg"},{"name":"Welcome Sign: Flower Box","cents":2000,"label":"from","slug":"welcome-sign-flower-box","img":"4ca66446-4d93-4879-899c-f0d604e519d3/large_il_570xN-4867090619_65vw.jpg"},{"name":"Seating Chart: Windows","cents":2500,"label":"from","slug":"seating-chart-windows","img":"ef7f8dc3-fd30-4817-a592-136167e3e42a/large_642789693_122111674695229016_5440456060504407027_n.jpg"},{"name":"Donut Board","cents":5000,"label":"from","slug":"donut-board","img":"3217f672-852d-4243-baac-c28cf805841e/large_643879850_122111685573229016_4481440117860188334_n.jpg"},{"name":"Lanterns: Small","cents":500,"label":"from","slug":"lanterns-small","img":"6495f576-a2f9-4a63-815c-340260095b41/large_645420659_122111680947229016_1315987679770582996_n.jpg"},{"name":"Graduation: Cap & Gown Stand","cents":2000,"label":"from","slug":"graduation-cap-gown-stand","img":"3fde3ca7-840f-4ecb-9f15-f667d4a0cd2f/large_IMG_1707.jpg"},{"name":"LED Lighted Sign: Drunk in Love","cents":2500,"label":"from","slug":"led-lighted-sign-drunk-in-love","img":"3f9404a1-d424-4bc7-a72c-6074cf6f6fd3/large_drunk_in_love.jpg"},{"name":"LED Lighted Sign: Mr. & Mrs.","cents":2500,"label":"from","slug":"led-lighted-sign-mr-mrs","img":"5832ea75-7d35-4fa8-a724-4485a49774b3/large_IMG_0603.jpg"},{"name":"LED Lighted Sign: But First, Chapagne","cents":2500,"label":"from","slug":"led-lighted-sign-but-first-chapagne","img":"54793450-4c50-446f-977c-5073948eb90d/large_but_first_champagne.jpg"},{"name":"Signage: Cards/Gifts","cents":1000,"label":"from","slug":"signage-cards-gifts","img":"a7e6a029-f710-4e22-b762-40654e6a49ce/large_645476915_122111674647229016_3073643858171285740_n.jpg"},{"name":"Wooden Dessert Stands (Set)","cents":2000,"label":"from","slug":"wooden-dessert-stands-set","img":"652b95cc-751f-4d40-ac79-724939c23f57/large_647543975_122111674023229016_7359755602472691892_n.jpg"},{"name":"Vases - Misc.","cents":300,"label":"from","slug":"vases-misc","img":"77f2f285-5fca-433a-89f9-22e3043abc4d/large_b390d4b7-ecfc-4795-8b3c-cdb49ebbde07.jpg"},{"name":"Seating Chart: Personalized, XL Lighted","cents":20000,"label":"1 Day","slug":"seating-chart-personalized-xl-lighted","img":"47604343-5aa5-4392-a812-705fe342bfee/large_be75cbe2-d395-40c1-9226-149aef7a46b9.jpg"},{"name":"Reserved Sign Sets","cents":1000,"label":"from","slug":"reserved-sign-sets","img":"fb1f1d59-a2eb-4475-9e47-78b44ee17d37/large_att-NPgCxpOAAyJgpsrFdg8i3esJmg4hmAoyiOLQrgJRaTw.jpg"},{"name":"XL Arch Florals - White Neutrals","cents":15000,"label":"from","slug":"xl-arch-florals-white-neutrals","img":"9ce85674-9674-4b1f-bfe3-fc0cc1735e33/large_20260324_021208000_iOS.jpg"},{"name":"White Pallet Photo Display","cents":5000,"label":"from","slug":"white-pallet-photo-display","img":"c3e513e9-05f4-4dba-b846-eddeebdacb24/large_photo_display_white.jpg"},{"name":"Heel Garage","cents":5000,"label":"from","slug":"heel-garage","img":"8e9f76cc-29a2-43cb-8d45-eb7a65047c31/large_bb0e9dda-7ed8-4d4b-8ccb-a65b31c24a41.jpg"},{"name":"Lighted Rustic Backdrop Fence","cents":3000,"label":"from","slug":"lighted-rustic-backdrop-fence","img":"569eb937-a295-4651-866f-0d9c9c231bdd/large_20260322_005840000_iOS.jpg"},{"name":"Vintage Book Accent (Set of 3)","cents":700,"label":"from","slug":"vintage-book-accent-set-of-3","img":"491a6134-2202-4471-9552-6ac6dc223ff4/large_book.jpg"},{"name":"Seating Chart Mirror","cents":7500,"label":"from","slug":"seating-chart-mirror","img":"706059e3-5c2a-4dd2-956c-c1f830f41986/large_c8c69775-cbbe-45da-b6f9-775326d1660a.jpg"},{"name":"Triangle Arch Set","cents":10000,"label":"from","slug":"triage-arch-set","img":"4a7e7ccd-e776-4d28-a539-a8a41c683490/large_arch.jpg"},{"name":"Audio Guest Book","cents":5000,"label":"from","slug":"audio-guest-book","img":"cdcaa34e-ffdd-4c3d-bb23-48ce7392cf25/large_audio_guest_book.jpg"},{"name":"Statement Mirror","cents":15000,"label":"1 Day","slug":"statement-mirror","img":"03577025-efa6-4ad3-83cf-0010910ea755/large_682875523_122118903015229016_4629615064772947415_n.jpg"},{"name":"Champagne Wall: Boxwood","cents":15000,"label":"from","slug":"champagne-wall-boxwood","img":"fbc0e7ac-c2ea-4c6a-b392-68821b46952c/large_boxwood_wall_champ.jpg"},{"name":"Polaroid Photo Booth Prop","cents":5000,"label":"from","slug":"polaroid-photo-booth-prop","img":"1fee1def-53b0-4fc9-b517-6ab21a589b96/large_20260223_025446000_iOS.jpg"},{"name":"Signage: How Sweet It Is","cents":1500,"label":"from","slug":"signage-how-sweet-it-is","img":"9003ac3e-ba2a-401b-8600-c11475799fe6/large_how_sweet_it_is.jpg"},{"name":"Wooden Accent Pieces","cents":1000,"label":"from","slug":"wooden-accent-pieces","img":"c7d34ff7-1bb3-4b92-ab3e-50d56d8913f1/large_20260304_030702398_iOS.jpg"},{"name":"Rustic Tiered Dessert Stand","cents":2500,"label":"from","slug":"rustic-tiered-dessert-stand","img":"c21f0c39-3a66-4fed-80ab-360ab37dec56/large_att-BypN3lYNxALfBgaVHqE0uGE3jVo3fWOagiMqC6RxiPE.jpg"},{"name":"Arch Floral Set - Neutral Browns","cents":15000,"label":"from","slug":"arch-floral-set-neutral-browns","img":"d2ad5a92-b2e3-4576-886c-0253739f9bf7/large_att-wdAiH4kPsTmuj6dMUYHoIjLgOe86Pemkgwx5rceCwY0.jpg"},{"name":"Center Pieces - Neutral Brown Set","cents":3000,"label":"from","slug":"center-pieces-neutral-brown-set","img":"201a7d76-38a1-4d8f-bc3a-ca0f0cb12abd/large_att-uFF5mv867bWysBy2mWIx1ePGTDqw1ZLERQC-RKI3x3w.jpg"},{"name":"Neutral Flower Set - Brown, Ivory, White","cents":69000,"label":"from","slug":"neutral-flower-set-brown-ivory-white","img":"aadca692-8416-4564-9e59-e6ef0e20a0b9/large_684265121_122119447233229016_9218884621707900352_n.jpg"},{"name":"Gold Metal Circle Arch 10ft","cents":2500,"label":"from","slug":"gold-metal-circle-arch-10ft","img":"a54500a3-4b54-4216-a9da-2084b2703e9d/large_golden_arch_circle.jpg"},{"name":"Arch: Black Wooden Octagon w/ power","cents":15000,"label":"from","slug":"arch-black-wooden-octagon-w-power","img":"cac4ff9a-9062-4573-9535-0b430fb17295/large_569409f8-a200-458d-a1b5-ebdf1eda663a.jpg"},{"name":"Wooden Raw Crates","cents":500,"label":"from","slug":"wooden-raw-crates","img":"8b0278ed-0e17-45df-b810-b656517e16c5/large_att-lvF4l2h1qHj1PccWavNFH8K3mQoMWdEQwufZkNVUpwc.jpg"},{"name":"Barrells","cents":3500,"label":"from","slug":"barrells","img":"e29b3074-e91a-497a-9344-f5e60b59a2d5/large_20260303_005026326_iOS.jpg"},{"name":"Wooden Arch","cents":10000,"label":"from","slug":"wooden-arch","img":"f2b59734-9157-4842-b9c1-f5d06439962d/large_d3e6bf44-f864-462e-8330-1040b24fcb22.jpg"},{"name":"Gold Arches, Set of 3 (6ft, 6.2ft, 7.2ft)","cents":5000,"label":"from","slug":"gold-arches-set-of-3-6ft-6-2ft-7-2ft","img":"908a4b4b-873e-4f46-833b-5df0c2ec6e53/large_20260303_004840330_iOS.jpg"},{"name":"Arched Display - White","cents":7500,"label":"from","slug":"arched-display-white","img":"153132d1-3cf7-4486-9d48-2c64936a8e34/large_white_arch_display.jpg"},{"name":"Wooden Guest Log","cents":7500,"label":"from","slug":"wooden-guest-log","img":"646e209d-ed0c-444c-a8c7-12e7057c3411/large_guest_log.jpg"},{"name":"Vintage Dresser Display","cents":10000,"label":"from","slug":"vintage-dresser-display","img":"76d9647f-70c6-4c25-8ce3-944d2df4f2fe/large_dresser.jpg"},{"name":"Vintage Cream Sofa","cents":17500,"label":"from","slug":"vintage-cream-sofa","img":"49c2f07c-a29c-4d46-af1c-739684579ab8/large_20260303_004531214_iOS.jpg"},{"name":"Champagne Wall: Wooden","cents":15000,"label":"from","slug":"champagne-wall-wooden","img":"04084483-fec7-48b0-b6e1-3c63cc9d0170/large_679744842_122119020153229016_131240910669963002_n.jpg"},{"name":"Wooden Backdrop 10x9","cents":17500,"label":"from","slug":"wooden-backdrop-10x9","img":"c5294d7d-5f49-4ad5-a832-ad37a874d894/large_att-QYWb0D1328T-IRCFantG4vrtbjoNFKiIFLE9RcOSfOE.jpg"}];
+
+  var STYLES = [
+    {id:"rustic",  name:"Rustic",   desc:"Barn wood, barrels, warm string light glow."},
+    {id:"boho",    name:"Boho",     desc:"Pampas, dried texture, soft neutral palettes."},
+    {id:"classic", name:"Classic",  desc:"Ivory, candlelight, clean and timeless."},
+    {id:"modern",  name:"Modern",   desc:"Clean lines, acrylic, neon, black and white."},
+    {id:"glam",    name:"Glam",     desc:"Gold, mirror, marquee letters, sparkle."},
+    {id:"vintage", name:"Vintage",  desc:"Antique dressers, church pews, old world charm."},
+    {id:"garden",  name:"Garden",   desc:"Greenery walls, boxwood, fresh and outdoor."},
+    {id:"moody",   name:"Moody",    desc:"Deep emerald, dark wood, dramatic and rich."}
+  ];
+
+  var PRIORITIES = [
+    {id:"ceremony",     label:"Ceremony arch or altar",  cats:["ceremony"]},
+    {id:"backdrop",     label:"Photo backdrop",          cats:["backdrop"]},
+    {id:"florals",      label:"Florals",                 cats:["florals"]},
+    {id:"lighting",     label:"Lighting and letters",    cats:["lighting"]},
+    {id:"lounge",       label:"Lounge seating",          cats:["lounge"]},
+    {id:"seating",      label:"Ceremony seating",        cats:["seating"]},
+    {id:"seatingchart", label:"Seating chart",           cats:["seatingchart"]},
+    {id:"signage",      label:"Signage",                 cats:["signage"]},
+    {id:"tables",       label:"Table styling",           cats:["centerpiece","tabletop"]},
+    {id:"bar",          label:"Bar and champagne",       cats:["bar"]},
+    {id:"dessert",      label:"Dessert display",         cats:["dessert"]},
+    {id:"guestbook",    label:"Guest book",              cats:["guestbook"]},
+    {id:"photo",        label:"Photo booth moment",      cats:["photo"]},
+    {id:"games",        label:"Lawn games",              cats:["games"]}
+  ];
+
+  var CAT_LABELS = {
+    ceremony:"Ceremony arches", backdrop:"Backdrops", florals:"Florals", lighting:"Lighting",
+    lounge:"Lounge", seating:"Ceremony seating", seatingchart:"Seating charts", signage:"Signage",
+    centerpiece:"Centerpieces", tabletop:"Table styling", bar:"Bar", dessert:"Dessert",
+    guestbook:"Guest books", photo:"Photo booth", games:"Games", accents:"Accents"
+  };
+
+  /* keyword fallback so pieces added to the store after this tool was built
+     still get sorted sensibly instead of disappearing */
+  var GUESS = [
+    [/arch|altar/i,                       {cat:"ceremony",     styles:["rustic","boho","garden"],   tier:"statement"}],
+    [/backdrop|wall|fence|panel/i,        {cat:"backdrop",     styles:["rustic","garden","modern"], tier:"statement"}],
+    [/floral|flower|greenery|pampas/i,    {cat:"florals",      styles:["boho","garden","classic"],  tier:"mid"}],
+    [/light|neon|led|marquee|candle|lantern|candelabra/i, {cat:"lighting", styles:["glam","classic","modern"], tier:"accent"}],
+    [/sofa|loveseat|chair|settee|lounge/i,{cat:"lounge",       styles:["glam","vintage","classic"], tier:"statement"}],
+    [/pew|bench/i,                        {cat:"seating",      styles:["rustic","vintage"],         tier:"mid"}],
+    [/seating chart/i,                    {cat:"seatingchart", styles:["classic","modern"],         tier:"mid"}],
+    [/sign|welcome|mirror|stand/i,        {cat:"signage",      styles:["classic","rustic","modern"],tier:"accent"}],
+    [/vase|centerpiece|center piece/i,    {cat:"centerpiece",  styles:["classic","boho","garden"],  tier:"accent"}],
+    [/linen|table number|napkin/i,        {cat:"tabletop",     styles:["classic","modern"],         tier:"accent"}],
+    [/bar|champagne|growler|drink/i,      {cat:"bar",          styles:["rustic","glam"],            tier:"statement"}],
+    [/dessert|donut|cake|sweet/i,         {cat:"dessert",      styles:["rustic","modern"],          tier:"accent"}],
+    [/guest ?book|guest log|audio guest/i,{cat:"guestbook",    styles:["rustic","vintage","boho"],  tier:"mid"}],
+    [/photo|polaroid|booth/i,             {cat:"photo",        styles:["modern","boho","garden"],   tier:"mid"}],
+    [/jenga|game|corn ?hole/i,            {cat:"games",        styles:["rustic","garden"],          tier:"accent"}]
+  ];
+
+  var CATALOG = [];
+  var state = {
+    styles:[], priorities:[], budget:1500, guests:120,
+    eventType:"wedding", eventDate:"", cart:[], filter:"all", showAll:false, packages:[]
+  };
+
+  /* ---------- helpers ---------- */
+  function money(c){ return "$" + (c/100).toLocaleString("en-US",{minimumFractionDigits:0,maximumFractionDigits:0}); }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(m){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]; }); }
+  function el(id){ return document.getElementById(id); }
+  function tables(){ return Math.max(1, Math.ceil(state.guests/8)); }
+
+  function tagFor(item){
+    var t = TAGS[item.slug];
+    if (t) return t;
+    for (var i=0;i<GUESS.length;i++){
+      if (GUESS[i][0].test(item.name)) return GUESS[i][1];
+    }
+    return {cat:"accents", styles:["classic"], tier:"accent"};
+  }
+
+  /* ---------- load the live collection ---------- */
+  function normalise(rows, photos){
+    var out = [];
+    rows.forEach(function(d){
+      var a = d.attributes || {};
+      if (a.show_in_store === false) return;
+      var slug = a.slug;
+      var t = tagFor({slug:slug, name:a.name||""});
+      if (t.exclude) return;
+      out.push({
+        id: d.id,
+        name: a.name || "",
+        slug: slug,
+        cents: a.price_each_in_cents || 0,
+        label: a.charge_label || "from",
+        img: photos[a.photo_id] || "",
+        cat: t.cat,
+        styles: t.styles || [],
+        tier: t.tier || "accent",
+        scale: !!t.scale,
+        events: t.events || null
+      });
+    });
+    return out;
+  }
+
+  function loadCatalog(){
+    var status = el("loadStatus");
+    return fetch(SHOP + "/api/3/items?include=photo&page[size]=200", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({filter:{}})
+    })
+    .then(function(r){ if(!r.ok) throw new Error("status " + r.status); return r.json(); })
+    .then(function(j){
+      var photos = {};
+      (j.included||[]).forEach(function(p){
+        photos[p.id] = (p.attributes && (p.attributes.large_url || p.attributes.original_url)) || "";
+      });
+      CATALOG = normalise(j.data || [], photos);
+      if (!CATALOG.length) throw new Error("empty");
+      status.textContent = CATALOG.length + " pieces loaded at today's prices.";
+      status.removeAttribute("data-tone");
+    })
+    .catch(function(){
+      CATALOG = SNAPSHOT.map(function(s){
+        var t = tagFor(s);
+        return {
+          id:s.slug, name:s.name, slug:s.slug, cents:s.cents, label:s.label,
+          img: IMGBASE + s.img, cat:t.cat, styles:t.styles||[], tier:t.tier||"accent",
+          scale:!!t.scale, events:t.events||null
+        };
+      }).filter(function(x){ var t = TAGS[x.slug]; return !(t && t.exclude); });
+      status.textContent = "Showing our most recent saved prices. We will confirm the current rate when you reserve.";
+      status.setAttribute("data-tone","warn");
+    });
+  }
+
+  /* ---------- scoring and package building ---------- */
+  function eventOk(item){
+    if (!item.events) return item.cat !== "deposit";
+    return item.events.indexOf(state.eventType) !== -1;
+  }
+
+  function styleScore(item){
+    if (!state.styles.length) return 1;
+    var hits = 0;
+    item.styles.forEach(function(s){ if (state.styles.indexOf(s) !== -1) hits++; });
+    return hits;
+  }
+
+  function priorityCats(){
+    var cats = [];
+    state.priorities.forEach(function(pid){
+      PRIORITIES.forEach(function(p){ if (p.id === pid) cats = cats.concat(p.cats); });
+    });
+    return cats;
+  }
+
+  function score(item){
+    var s = styleScore(item) * 3;
+    if (priorityCats().indexOf(item.cat) !== -1) s += 5;
+    if (item.tier === "statement") s += 1;
+    if (item.styles.length === 0) s -= 1;
+    return s;
+  }
+
+  function qtyFor(item){
+    if (!item.scale) return 1;
+    var n = tables();
+    if (item.cat === "tabletop") return Math.min(n, 12);
+    return Math.min(Math.ceil(n/2), 8);
+  }
+
+  /* how many pieces from one category belong in a single bundle */
+  var CAT_CAP = {
+    ceremony:1, backdrop:1, lounge:1, seatingchart:1, bar:1, guestbook:1,
+    photo:1, seating:1, games:2, dessert:2, florals:2, signage:3,
+    lighting:3, centerpiece:3, tabletop:3, accents:3
+  };
+
+  function buildPackage(opts){
+    var budget = state.budget * 100;
+    var target = Math.round(budget * opts.fill);
+    var onStyle = CATALOG.filter(eventOk).filter(function(i){ return styleScore(i) > 0 || !state.styles.length; });
+    var offStyle = CATALOG.filter(eventOk).filter(function(i){ return onStyle.indexOf(i) === -1; });
+
+    var picked = [], spent = 0, usedCat = {}, usedId = {};
+
+    function room(item){ return (usedCat[item.cat]||0) < (CAT_CAP[item.cat] || 3); }
+
+    function add(item, qty){
+      if (usedId[item.id] || !room(item)) return false;
+      var cost = item.cents * qty;
+      if (spent + cost > budget) return false;
+      if (picked.length >= opts.max) return false;
+      picked.push({item:item, qty:qty});
+      usedId[item.id] = true;
+      usedCat[item.cat] = (usedCat[item.cat]||0) + 1;
+      spent += cost;
+      return true;
+    }
+
+    /* 1. one anchor piece for each thing they told us matters */
+    var wanted = priorityCats();
+    if (!wanted.length) wanted = ["ceremony","lighting","signage","centerpiece","tabletop"];
+    wanted = wanted.filter(function(c,i){ return wanted.indexOf(c) === i; });
+
+    var order = wanted.slice();
+
+    /* statement mode: commit to one hero piece up front, then style around it */
+    if (opts.mode === "statement"){
+      var heroPool = onStyle.filter(function(i){
+        return i.tier === "statement" && i.cents <= budget * 0.55 &&
+               (wanted.indexOf(i.cat) !== -1 || i.cat === "ceremony" || i.cat === "backdrop");
+      });
+      if (!heroPool.length){
+        heroPool = onStyle.filter(function(i){ return i.tier === "statement" && i.cents <= budget * 0.55; });
+      }
+      heroPool.sort(function(a,b){ return b.cents - a.cents || score(b)-score(a); });
+      if (heroPool.length) add(heroPool[0], 1);
+
+      order.sort(function(a,b){
+        function top(cat){
+          var m = onStyle.filter(function(i){ return i.cat===cat; }).map(function(i){ return i.cents; });
+          return m.length ? Math.max.apply(null, m) : 0;
+        }
+        return top(b) - top(a);
+      });
+    }
+
+    order.forEach(function(cat){
+      var cands = onStyle.filter(function(i){ return i.cat === cat && !usedId[i.id]; });
+      if (!cands.length) cands = offStyle.filter(function(i){ return i.cat === cat && !usedId[i.id]; });
+      if (opts.mode === "lean")           cands.sort(function(a,b){ return a.cents - b.cents || score(b)-score(a); });
+      else if (opts.mode === "statement") cands.sort(function(a,b){ return b.cents - a.cents || score(b)-score(a); });
+      else                                cands.sort(function(a,b){ return score(b)-score(a) || b.cents-a.cents; });
+      for (var i=0;i<cands.length;i++){
+        var q = qtyFor(cands[i]);
+        if (spent + cands[i].cents*q <= target && add(cands[i], q)) break;
+      }
+    });
+
+    /* 2. table styling, scaled to the guest count, when they did not ask for it directly */
+    if (wanted.indexOf("centerpiece") === -1 && wanted.indexOf("tabletop") === -1){
+      onStyle.filter(function(i){ return i.cat==="centerpiece" || i.cat==="tabletop"; })
+        .sort(function(a,b){ return score(b)-score(a); })
+        .forEach(function(i){ if (spent < target) add(i, qtyFor(i)); });
+    }
+
+    /* 3. fill toward the target. Each package leans on a different part of the collection
+          so the three options do not read as the same list three times. */
+    var bias = opts.bias || {};
+    function fillScore(i){ return score(i) + (bias[i.cat] || 0); }
+    function fillFrom(list, allowStatement){
+      list.filter(function(i){ return !usedId[i.id] && (allowStatement || i.tier !== "statement"); })
+        .sort(function(a,b){ return fillScore(b)-fillScore(a) || b.cents-a.cents; })
+        .forEach(function(i){
+          if (spent >= target) return;
+          var q = qtyFor(i);
+          if (spent + i.cents*q <= target) add(i, q);
+        });
+    }
+    fillFrom(onStyle, true);
+    fillFrom(onStyle, false);
+    if (spent < target * 0.7) fillFrom(offStyle, true);
+
+    return {
+      name: opts.name, kicker: opts.kicker, blurb: opts.blurb,
+      lines: picked, total: spent
+    };
+  }
+
+  function signature(p){
+    return p.lines.map(function(l){ return l.item.id + "x" + l.qty; }).sort().join("|");
+  }
+
+  function buildAll(){
+    var made = [
+      buildPackage({name:"The Essentials", kicker:"Room to breathe", fill:0.60, max:10, mode:"lean",
+        bias:{signage:3, tabletop:3, centerpiece:2},
+        blurb:"The pieces that carry the room, with budget left over for the rest of the day."}),
+      buildPackage({name:"The Full Look",  kicker:"Most popular", fill:0.95, max:16, mode:"balanced",
+        bias:{florals:3, guestbook:2, dessert:2, tabletop:1},
+        blurb:"Every corner styled, spending close to the full number you gave us."}),
+      buildPackage({name:"Statement First",kicker:"One big moment", fill:0.95, max:15, mode:"statement",
+        bias:{lighting:3, backdrop:3, lounge:3, photo:2},
+        blurb:"One piece everybody photographs, then simple styling around it."})
+    ];
+    /* at smaller budgets two of these can land on the same answer, so only show the distinct ones */
+    var seen = {};
+    state.packages = made.filter(function(p){
+      if (!p.lines.length) return false;
+      var s = signature(p);
+      if (seen[s]) return false;
+      seen[s] = true;
+      return true;
+    });
+    if (!state.packages.length) state.packages = [made[1]];
+  }
+
+  /* ---------- rendering ---------- */
+  function renderStyleTiles(){
+    el("styleTiles").innerHTML = STYLES.map(function(s){
+      return '<li class="style-tile">' +
+        '<input type="checkbox" id="st-'+s.id+'" name="style" value="'+s.id+'">' +
+        '<label for="st-'+s.id+'"><span class="style-name">'+esc(s.name)+'</span>' +
+        '<span class="style-desc">'+esc(s.desc)+'</span></label></li>';
+    }).join("");
+  }
+
+  function renderPriorityChips(){
+    el("priorityChips").innerHTML = PRIORITIES.map(function(p){
+      return '<li class="chip"><input type="checkbox" id="pr-'+p.id+'" name="priority" value="'+p.id+'">' +
+             '<label for="pr-'+p.id+'">'+esc(p.label)+'</label></li>';
+    }).join("");
+  }
+
+  function renderPackages(){
+    el("pkgGrid").innerHTML = state.packages.map(function(p,idx){
+      var rows = p.lines.map(function(l){
+        return '<li><span class="li-name">'+esc(l.item.name)+(l.qty>1?' &times;'+l.qty:'')+'</span>' +
+               '<span class="li-price">'+money(l.item.cents*l.qty)+'</span></li>';
+      }).join("");
+      var pct = state.budget ? Math.round(p.total/(state.budget*100)*100) : 0;
+      var meta = money(state.budget*100) + ' budget, ' + p.lines.length + ' piece' + (p.lines.length===1?'':'s') +
+                 ', ' + money(state.budget*100 - p.total) + ' left';
+      return '<article class="pkg">' +
+        '<p class="pkg-kicker">'+esc(p.kicker)+'</p>' +
+        '<h3 class="pkg-name">'+esc(p.name)+'</h3>' +
+        '<p class="pkg-blurb">'+esc(p.blurb)+'</p>' +
+        '<p class="pkg-total">'+money(p.total)+'</p>' +
+        '<p class="pkg-of">'+esc(meta)+'</p>' +
+        '<ul class="pkg-list">'+rows+'</ul>' +
+        '<button type="button" class="btn btn-dark" data-pkg="'+idx+'">Start with this one</button>' +
+        '</article>';
+    }).join("");
+  }
+
+  function renderFilters(){
+    var cats = {};
+    CATALOG.filter(eventOk).forEach(function(i){ cats[i.cat] = (cats[i.cat]||0)+1; });
+    var keys = Object.keys(cats).sort(function(a,b){
+      return (CAT_LABELS[a]||a).localeCompare(CAT_LABELS[b]||b);
+    });
+    var html = '<li class="chip"><input type="radio" name="catf" id="cf-all" value="all" checked>' +
+               '<label for="cf-all">Everything</label></li>';
+    html += keys.map(function(k){
+      return '<li class="chip"><input type="radio" name="catf" id="cf-'+k+'" value="'+k+'">' +
+             '<label for="cf-'+k+'">'+esc(CAT_LABELS[k]||k)+'</label></li>';
+    }).join("");
+    el("catFilters").innerHTML = html;
+  }
+
+  function inCart(id){ return state.cart.some(function(l){ return l.item.id === id; }); }
+
+  function renderPieces(){
+    var list = CATALOG.filter(eventOk).filter(function(i){
+      return state.filter === "all" || i.cat === state.filter;
+    });
+    list.sort(function(a,b){ return score(b)-score(a) || a.name.localeCompare(b.name); });
+
+    var PAGE = 24;
+    var shown = (state.showAll || list.length <= PAGE) ? list : list.slice(0, PAGE);
+
+    el("browseCount").textContent = (shown.length < list.length)
+      ? "Showing the " + shown.length + " pieces closest to your look, out of " + list.length + " in the collection."
+      : list.length + " piece" + (list.length===1?"":"s") +
+        (state.filter==="all" ? " in the collection." : " in " + (CAT_LABELS[state.filter]||state.filter).toLowerCase() + ".");
+
+    var more = el("showAllBtn");
+    if (list.length > PAGE){
+      more.hidden = false;
+      more.textContent = state.showAll ? "Show the closest matches only" : "Show all " + list.length + " pieces";
+    } else {
+      more.hidden = true;
+    }
+
+    el("pieceGrid").innerHTML = shown.map(function(i){
+      var on = inCart(i.id);
+      var tags = i.styles.slice(0,3).map(function(s){ return '<li>'+esc(s)+'</li>'; }).join("");
+      return '<li class="piece" data-in="'+on+'">' +
+        '<div class="piece-img">' + (i.img ? '<img src="'+esc(i.img)+'" alt="'+esc(i.name)+'" loading="lazy" width="400" height="300">' : '') + '</div>' +
+        '<div class="piece-body">' +
+          '<h3 class="piece-name">'+esc(i.name)+'</h3>' +
+          '<p class="piece-meta">'+money(i.cents)+' '+esc(i.label==="from"?"and up":i.label)+'</p>' +
+          '<ul class="piece-tags">'+tags+'</ul>' +
+          '<button type="button" class="btn '+(on?'btn-ghost':'btn-dark')+' btn-sm" data-toggle="'+esc(i.id)+'">' +
+            (on ? 'Remove from bundle' : 'Add to bundle') +
+            '<span class="sr-only">, '+esc(i.name)+'</span>' +
+          '</button>' +
+        '</div></li>';
+    }).join("");
+  }
+
+  function renderCart(){
+    var total = state.cart.reduce(function(s,l){ return s + l.item.cents*l.qty; }, 0);
+    var cap = state.budget*100;
+    var pct = cap ? Math.min(100, Math.round(total/cap*100)) : 0;
+    var over = total > cap;
+
+    el("cartTotal").textContent = money(total);
+    el("cartCap").textContent = "of " + money(cap);
+    el("meterFill").style.width = pct + "%";
+    el("meterFill").setAttribute("data-over", over ? "true" : "false");
+
+    var note = el("meterNote");
+    if (!state.cart.length) note.textContent = "";
+    else if (over) note.textContent = "You are " + money(total-cap) + " over the budget you set. Still worth asking about.";
+    else note.textContent = money(cap-total) + " left to spend.";
+    note.setAttribute("data-over", over ? "true" : "false");
+
+    el("cartDates").textContent = state.eventDate
+      ? "For " + new Date(state.eventDate + "T12:00:00").toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})
+      : "Add your date at checkout.";
+
+    el("cartEmpty").hidden = state.cart.length > 0;
+    el("cartList").innerHTML = state.cart.map(function(l){
+      return '<li>' +
+        '<span class="ci-name">'+esc(l.item.name) +
+          (l.qty>1 ? '<span class="ci-qty">Quantity '+l.qty+'</span>' : '') +
+        '</span>' +
+        '<span class="ci-price">'+money(l.item.cents*l.qty)+'</span>' +
+        '<button type="button" class="icon-btn" data-remove="'+esc(l.item.id)+'" ' +
+          'aria-label="Remove '+esc(l.item.name)+' from your bundle">&times;</button>' +
+        '</li>';
+    }).join("");
+  }
+
+  function summaryText(){
+    var lines = [];
+    lines.push("My To Have and Hold bundle");
+    if (state.eventDate) lines.push("Event date: " + state.eventDate);
+    lines.push("Event: " + el("eventType").options[el("eventType").selectedIndex].text);
+    lines.push("Guests: " + state.guests);
+    lines.push("Budget: " + money(state.budget*100));
+    lines.push("");
+    state.cart.forEach(function(l){
+      lines.push("- " + l.item.name + (l.qty>1 ? " (x"+l.qty+")" : "") + "  " + money(l.item.cents*l.qty));
+    });
+    lines.push("");
+    lines.push("Bundle total: " + money(state.cart.reduce(function(s,l){ return s+l.item.cents*l.qty; },0)));
+    lines.push("(Rental rates as listed. Final total depends on rental length and availability.)");
+    return lines.join("\n");
+  }
+
+  function renderReserve(){
+    el("summaryBox").textContent = summaryText();
+    el("reserveList").innerHTML = state.cart.map(function(l){
+      return '<li><span class="li-name">' +
+        '<a href="'+SHOP+'/products/'+esc(l.item.slug)+'" target="_blank" rel="noopener">'+esc(l.item.name)+'</a>' +
+        (l.qty>1 ? ' &times;'+l.qty : '') +
+        '</span><span class="li-price">'+money(l.item.cents*l.qty)+'</span></li>';
+    }).join("");
+    el("storeLink").href = SHOP + "/";
+  }
+
+  /* ---------- events ---------- */
+  function readForm(){
+    state.eventType = el("eventType").value;
+    state.eventDate = el("eventDate").value;
+    state.guests    = Math.max(10, parseInt(el("guests").value,10) || 120);
+    state.budget    = parseInt(el("budget").value,10) || 1500;
+    state.styles = Array.prototype.slice.call(document.querySelectorAll('input[name=style]:checked')).map(function(i){return i.value;});
+    state.priorities = Array.prototype.slice.call(document.querySelectorAll('input[name=priority]:checked')).map(function(i){return i.value;});
+  }
+
+  el("budget").addEventListener("input", function(){
+    var v = parseInt(this.value,10);
+    el("budgetFigure").textContent = "$" + v.toLocaleString("en-US");
+    el("budgetOut").textContent = "Budget set to " + v.toLocaleString("en-US") + " dollars";
+  });
+
+  /* two styles at a time: choosing a third swaps out the oldest */
+  var styleOrder = [];
+  document.addEventListener("change", function(e){
+    if (e.target.name === "style"){
+      var v = e.target.value;
+      if (e.target.checked){
+        styleOrder.push(v);
+        if (styleOrder.length > 2){
+          var drop = styleOrder.shift();
+          var box = document.getElementById("st-" + drop);
+          if (box) box.checked = false;
+          var dropped = STYLES.filter(function(s){ return s.id === drop; })[0];
+          var kept = STYLES.filter(function(s){ return styleOrder.indexOf(s.id) !== -1; }).map(function(s){ return s.name; });
+          el("styleStatus").textContent = "Two looks at a time, so we swapped " + (dropped?dropped.name:drop) +
+            " out. You have " + kept.join(" and ") + ".";
+        } else {
+          el("styleStatus").textContent = "";
+        }
+      } else {
+        styleOrder = styleOrder.filter(function(s){ return s !== v; });
+        el("styleStatus").textContent = "";
+      }
+    }
+    if (e.target.name === "catf"){
+      state.filter = e.target.value;
+      state.showAll = false;
+      renderPieces();
+      sendHeight();
+    }
+  });
+
+  el("brief").addEventListener("submit", function(e){
+    e.preventDefault();
+    readForm();
+    buildAll();
+    renderPackages();
+    var words = ["One way","Two ways","Three ways"];
+    el("resultsH").textContent = (words[state.packages.length-1] || "A few ways") + " to spend it";
+    var best = state.packages.reduce(function(m,p){ return Math.max(m, p.total); }, 0);
+    el("resultsSub").textContent = (best < state.budget*100*0.6)
+      ? "Every piece below comes from the live collection at today's prices. Your budget covers more than the collection has in your look, so there is money left for delivery, setup and anything we can source for you."
+      : "Every piece below comes from the live collection at today's prices. Pick the one closest to what you pictured, then make it yours.";
+    el("results").hidden = false;
+    el("results").focus();
+    el("results").scrollIntoView({behavior:"smooth",block:"start"});
+    sendHeight();
+  });
+
+  el("pkgGrid").addEventListener("click", function(e){
+    var b = e.target.closest("[data-pkg]");
+    if (!b) return;
+    var p = state.packages[parseInt(b.getAttribute("data-pkg"),10)];
+    state.cart = p.lines.map(function(l){ return {item:l.item, qty:l.qty}; });
+    renderFilters();
+    renderPieces();
+    renderCart();
+    el("builder").hidden = false;
+    el("reserve").hidden = true;
+    el("builder").focus();
+    el("builder").scrollIntoView({behavior:"smooth",block:"start"});
+    sendHeight();
+  });
+
+  el("pieceGrid").addEventListener("click", function(e){
+    var b = e.target.closest("[data-toggle]");
+    if (!b) return;
+    var id = b.getAttribute("data-toggle");
+    var item = CATALOG.filter(function(i){ return i.id === id; })[0];
+    if (!item) return;
+    if (inCart(id)) state.cart = state.cart.filter(function(l){ return l.item.id !== id; });
+    else state.cart.push({item:item, qty:qtyFor(item)});
+    renderPieces();
+    renderCart();
+    sendHeight();
+  });
+
+  el("cartList").addEventListener("click", function(e){
+    var b = e.target.closest("[data-remove]");
+    if (!b) return;
+    var id = b.getAttribute("data-remove");
+    state.cart = state.cart.filter(function(l){ return l.item.id !== id; });
+    renderPieces();
+    renderCart();
+    sendHeight();
+  });
+
+  el("showAllBtn").addEventListener("click", function(){
+    state.showAll = !state.showAll;
+    renderPieces();
+    sendHeight();
+    el("browseCount").focus && el("browseCount").focus();
+  });
+
+  el("backBtn").addEventListener("click", function(){
+    el("results").focus();
+    el("results").scrollIntoView({behavior:"smooth",block:"start"});
+  });
+
+  el("reserveBtn").addEventListener("click", function(){
+    if (!state.cart.length){
+      el("meterNote").textContent = "Add at least one piece before you reserve.";
+      return;
+    }
+    renderReserve();
+    el("reserve").hidden = false;
+    el("reserve").focus();
+    el("reserve").scrollIntoView({behavior:"smooth",block:"start"});
+    sendHeight();
+  });
+
+  el("copyBtn").addEventListener("click", function(){
+    var txt = summaryText();
+    var done = function(){ el("copyStatus").textContent = "Copied. Paste it into the inquiry form or a text to us."; };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(done, function(){
+        el("copyStatus").textContent = "Copy did not work in this browser. Select the text below and copy it.";
+      });
+    } else {
+      el("copyStatus").textContent = "Select the text below and copy it.";
+    }
+  });
+
+  /* ---------- iframe height sender ---------- */
+  var EMBED_ID = "thh-bundle-designer";
+  function sendHeight(){
+    var h = Math.max(
+      document.body.scrollHeight, document.documentElement.scrollHeight,
+      document.body.offsetHeight, document.documentElement.offsetHeight
+    );
+    try {
+      window.parent.postMessage({ id: EMBED_ID, type: "resize", height: h }, "*");
+    } catch(err){}
+  }
+  window.addEventListener("load", sendHeight);
+  window.addEventListener("resize", sendHeight);
+  if (window.ResizeObserver){
+    new ResizeObserver(sendHeight).observe(document.body);
+  } else {
+    setInterval(sendHeight, 750);
+  }
+
+  /* ---------- go ---------- */
+  renderStyleTiles();
+  renderPriorityChips();
+  loadCatalog().then(sendHeight);
+
+})();
+</script>
+</body>
+</html>
